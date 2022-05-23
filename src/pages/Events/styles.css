@@ -1,0 +1,12 @@
+.react-datepicker__close-icon::after {
+    background-color: transparent !important;
+    color: #000 !important;
+    border: solid black 1.5px;
+    font-weight: 700;
+}
+
+@media only screen and (max-width: 899.5px) {
+    .date-range-group {
+        margin-top: 20px;
+    }
+}
