@@ -1,9 +1,10 @@
-import { AppBar, Box, Toolbar } from "@mui/material";
-import React from "react";
+import { AppBar, Box, IconButton, Menu, MenuItem, Toolbar } from "@mui/material";
+import React, { useRef, useState } from "react";
 import { PageRoutes } from "../../configuration/routes";
 import LinkupLogo from "./logo.png";
 import NavBrand from "./NavBrand";
 import NavLink from "./NavLink";
+import { Menu as MenuIcon } from "@mui/icons-material";
 
 const ROUTES = [
   { name: "Home", href: PageRoutes.home },
@@ -14,6 +15,8 @@ const ROUTES = [
 ];
 
 export default function Navbar() {
+  const btnRef = useRef();
+  const [menuOpen, setMenuOpen] = useState(false);
   return (
     <AppBar sx={{ backgroundColor: "#fff" }} position="sticky">
       <Toolbar>
@@ -21,13 +24,37 @@ export default function Navbar() {
           title="LinkupEvents"
           image={LinkupLogo}
         />
-        <Box sx={{ flexGrow: 1 }}></Box>
-        <Box>
+        <Box flexGrow={1}></Box>
+        {/* LARGE SCREENS */}
+        <Box sx={{ display: { xs: "none", md: "block" } }}>
           {
             ROUTES.map((route, k) =>
               <NavLink key={k} {...route} />
             )
           }
+        </Box>
+        {/* SMALL SCREENS */}
+        <Box sx={{ display: { xs: "block", md: "none" } }}>
+          <Menu
+            anchorEl={btnRef?.current}
+            open={menuOpen}
+            onClose={() => setMenuOpen(false)}
+            keepMounted
+          >
+            {
+              ROUTES.map((route, k) =>
+                <MenuItem key={k} onClick={() => setMenuOpen(false)}>
+                  <NavLink {...route} />
+                </MenuItem>
+              )
+            }
+          </Menu>
+          <IconButton
+            ref={btnRef}
+            onClick={() => setMenuOpen(true)}
+          >
+            <MenuIcon />
+          </IconButton>
         </Box>
       </Toolbar>
     </AppBar>
