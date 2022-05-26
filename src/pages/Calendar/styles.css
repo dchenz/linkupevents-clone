@@ -52,7 +52,7 @@
 .content-modal-header {
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: flex-end;
     padding-bottom: 0.5rem;
 }
 
