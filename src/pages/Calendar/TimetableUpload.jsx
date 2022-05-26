@@ -1,13 +1,14 @@
 import { Delete, UploadFile } from "@mui/icons-material";
 import { Box, Button, IconButton, Typography } from "@mui/material";
 import { format } from "date-fns";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import CalendarContext, { setEvents, setTimetable } from "./Context/CalendarContext";
-import { readTimetableFile, saveTimetableToCache } from "./ParseICalFile";
+import { readTimetableFile, saveTimetableToCache } from "./ParseICSFile";
 import "./styles.css";
 
 export default function TimetableUpload() {
-  const {calendar, setCalendar} = useContext(CalendarContext);
+  const { calendar, setCalendar } = useContext(CalendarContext);
+  const [isError, setError] = useState(false);
 
   const handleICalUpload = (e) => {
     if (e.target.files) {
@@ -15,7 +16,8 @@ export default function TimetableUpload() {
         .then((data) => {
           setEvents(setCalendar, [...calendar.events, ...data]);
           setTimetable(setCalendar, data);
-        });
+        })
+        .catch(() => setError(true));
     }
   };
 
@@ -38,7 +40,11 @@ export default function TimetableUpload() {
         <Box flexGrow={1}>
           {
             calendar.timetable == null ?
-              <ImportButton onChange={handleICalUpload} /> :
+              <ImportButton
+                onClick={() => setError(false)}
+                onChange={handleICalUpload}
+                error={isError}
+              /> :
               <TimetableStatsField timetable={calendar.timetable} />
           }
         </Box>
@@ -57,10 +63,18 @@ export default function TimetableUpload() {
 
 function ImportButton(props) {
   return (
-    <Button component="label" startIcon={<UploadFile />}>
-      Import ICal from Notangles
-      <input type="file" hidden accept=".ics" onChange={props.onChange} />
-    </Button>
+    <React.Fragment>
+      <Button component="label" startIcon={<UploadFile />} onClick={props.onClick}>
+        Import ICal from Notangles
+        <input type="file" hidden accept=".ics" onChange={props.onChange} />
+      </Button>
+      {
+        props.error ?
+          <Typography color="red">
+            File could not be loaded. Please try again.
+          </Typography> : null
+      }
+    </React.Fragment>
   );
 }
 
@@ -74,3 +88,4 @@ function TimetableStatsField(props) {
     </Typography>
   );
 }
+

@@ -34,28 +34,34 @@ export const readTimetableFile = (file) => new Promise((resolve, reject) => {
   const reader = new FileReader();
   reader.onload = () => {
     const icalData = parseICalData(reader.result);
-    saveTimetableToCache(icalData);
-    formatTimetableEvents(icalData);
-    resolve(icalData);
+    if (!icalData) {
+      reject();
+    } else {
+      saveTimetableToCache(icalData);
+      formatTimetableEvents(icalData);
+      resolve(icalData);
+    }
   };
   reader.onerror = reject;
   reader.readAsText(file);
 });
 
 function parseICalData(textValue) {
-  const calendar = ICalParser.toJSON(textValue);
-  if (calendar.errors?.length) {
-    console.warn("Errors detected in iCal parsing", calendar.errors);
+  try {
+    const calendar = ICalParser.toJSON(textValue);
+    if (calendar.errors?.length) {
+      console.warn("Errors detected in iCal parsing", calendar.errors);
+    }
+    const events = calendar.events;
+    return events.map((event) => ({
+      title: event.summary ?? "Class",
+      start: event.dtstart.value,
+      end: event.dtend.value
+    }));
+  } catch {
+    // eslint-disable-next-line no-empty
   }
-  const events = calendar.events;
-  if (!events) {
-    console.warn("No timetable items found in iCal file");
-  }
-  return events.map((event) => ({
-    title: event.summary ?? "Class",
-    start: event.dtstart.value,
-    end: event.dtend.value
-  }));
+  return null;
 }
 
 function formatTimetableEvents(timetableEvents) {

@@ -6,7 +6,7 @@ import BigCalendar from "../../components/BigCalendar";
 import Loading from "../../components/Loading";
 import CalendarToolbar from "./CalendarToolbar";
 import CalendarContext from "./Context/CalendarContext";
-import { loadTimetableFromCache } from "./ParseICalFile";
+import { loadTimetableFromCache } from "./ParseICSFile";
 import "./styles.css";
 
 export default function EventCalendar() {
