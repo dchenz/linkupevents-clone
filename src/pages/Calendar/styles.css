@@ -1,0 +1,61 @@
+.event-calendar-container {
+    width: 100%;
+    padding: 0 0.5rem;
+    overflow-x: scroll;
+}
+
+.event-calendar {
+    width: 100%;
+    min-width: 1000px;
+    height: calc(100vh - 175px);
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* Internet Explorer 10+ */
+}
+
+.event-calendar::-webkit-scrollbar {
+    display: none;
+    /* Safari and Chrome */
+}
+
+.calendar-event-facebook {
+    background-color: #fff !important;
+    border-color: #000;
+    color: #000;
+    transition: background-color 100ms;
+}
+
+.calendar-event-facebook:hover {
+    background-color: #f5f5f5 !important;
+}
+
+.calendar-event-timetable {
+    background-color: #27a844 !important;
+    border-color: #2dc24e;
+    color: #fff;
+}
+
+.content-modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    -webkit-box-shadow: 0px 3px 13px 0px rgba(0, 0, 0, 0.62);
+    box-shadow: 0px 3px 13px 0px rgba(0, 0, 0, 0.62);
+    width: 50%;
+    padding: 1.25rem;
+}
+
+.content-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding-bottom: 0.5rem;
+}
+
+.content-modal-body {
+    padding-top: 0.5rem;
+}

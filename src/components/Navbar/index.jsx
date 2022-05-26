@@ -9,7 +9,8 @@ const ROUTES = [
   { name: "Home", href: PageRoutes.home },
   { name: "About", href: PageRoutes.about },
   { name: "Events", href: PageRoutes.allEvents },
-  { name: "Discover", href: "/discover" }
+  { name: "Discover", href: "/discover" },
+  { name: "Calendar", href: PageRoutes.calendar }
 ];
 
 export default function Navbar() {

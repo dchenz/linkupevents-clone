@@ -1,4 +1,4 @@
-import { Grid, Paper } from "@mui/material";
+import { Container, Grid, Paper } from "@mui/material";
 import React, { useEffect, useMemo, useState } from "react";
 import getEvents from "../../api/GetEvents";
 import Loading from "../../components/Loading";
@@ -59,7 +59,7 @@ export default function Events() {
   }
 
   return (
-    <div>
+    <Container>
       <Grid component={Paper} container my={5} p={5}>
         <Grid item md={6} width="100%" p={1}>
           <SearchField
@@ -96,7 +96,7 @@ export default function Events() {
         </Grid>
       </Grid>
       <EventsGrid data={displayedEvents} />
-    </div>
+    </Container>
   );
 }
 

@@ -1,5 +1,5 @@
 import { Facebook, InsertInvitation } from "@mui/icons-material";
-import { Avatar, Box, Chip, Grid, IconButton, Paper, Typography } from "@mui/material";
+import { Avatar, Box, Chip, Container, Grid, IconButton, Paper, Typography } from "@mui/material";
 import { format } from "date-fns";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -29,7 +29,7 @@ export default function Event() {
   }
 
   return (
-    <div>
+    <Container>
       <Grid container my={4} p={2}>
         <Grid item md={5} width="100%" p={1}>
           <img src={event.image_url} alt={event.title} width="100%" />
@@ -109,7 +109,7 @@ export default function Event() {
           </Box>
         </Grid>
       </Grid>
-    </div>
+    </Container>
   );
 }
 
