@@ -55,7 +55,7 @@ export default function Events() {
   }, [searchedEvents, startDate, finishDate, hideMultiDay, days, byInterval]);
 
   if (displayedEvents === null) {
-    return <Loading color="#05a" caption="Fetching events..." />;
+    return <Loading caption="Fetching events..." />;
   }
 
   return (

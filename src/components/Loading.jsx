@@ -10,17 +10,20 @@ const loadingStyles = {
   alignItems: "center"
 };
 
+// Will move into global theming later
+const color = "#e34329";
+
 export default function Loading(props) {
   return (
     <Box sx={loadingStyles}>
       <BounceLoader
         size={128}
-        color={props.color}
+        color={color}
         pr={3}
       />
       <Typography
         variant="h4"
-        color={props.color}
+        color={color}
         pl={3}
       >
         {props.caption}

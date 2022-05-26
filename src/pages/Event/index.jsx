@@ -17,7 +17,7 @@ export default function Event() {
   }, []);
 
   if (event == null) {
-    return <Loading color="#05a" caption="Fetching event info..." />;
+    return <Loading caption="Fetching event info..." />;
   }
 
   const chips = [];

@@ -26,7 +26,7 @@ export default function EventCalendar() {
   }, []);
 
   if (calendar.events === null) {
-    return <Loading color="#05a" caption="Fetching events..." />;
+    return <Loading caption="Fetching events..." />;
   }
 
   return (
