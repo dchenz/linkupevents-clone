@@ -1,9 +1,11 @@
 import { Facebook, Search } from "@mui/icons-material";
-import { Avatar, AvatarGroup, Card, CardActions, CardContent, CardMedia, Grid, IconButton, Typography } from "@mui/material";
+import { Avatar, AvatarGroup, Card, CardActions, CardContent, CardMedia, Grid, Typography } from "@mui/material";
 import React, { useEffect, useRef, useState } from "react";
+import IconButton from "../../components/IconButton";
 import { Properties } from "../../configuration/properties";
 import { PageRoutes } from "../../configuration/routes";
 import EventTime from "./EventTime";
+import "./styles.css";
 
 export default function EventCard({ event }) {
   const [height, setHeight] = useState("auto");
@@ -16,9 +18,8 @@ export default function EventCard({ event }) {
   }, [ref]);
 
   return (
-    <Grid item md={4} sx={{ width: "100%" }}>
-      <Card sx={{ height: "100%", display: "flex", flexDirection: "column", overflow: "unset", "& img": { objectFit: "cover" } }}>
-
+    <Grid item md={4} width="100%">
+      <Card className="event-card">
         <CardMedia
           ref={ref}
           component="img"
@@ -27,19 +28,21 @@ export default function EventCard({ event }) {
           width="100%"
           height={height}
         />
-
         <CardContent sx={{ flexGrow: 1 }}>
           <EventTime start={event.time_start} finish={event.time_finish} />
           <Typography sx={{ wordBreak: "break-word" }}>
             {event.title}
           </Typography>
         </CardContent>
-
         <CardActions>
-          <IconButton href={`${PageRoutes.eventTemplate}/${event.id}`}>
+          <IconButton
+            tooltip="View event"
+            href={`${PageRoutes.eventTemplate}/${event.id}`}
+          >
             <Search />
           </IconButton>
           <IconButton
+            tooltip="View on Facebook"
             href={event.url}
             target="_blank"
             rel="noreferrer noopener"
@@ -58,9 +61,8 @@ export default function EventCard({ event }) {
             }
           </AvatarGroup>
         </CardActions>
-
       </Card>
-    </Grid>
+    </Grid >
   );
 }
 

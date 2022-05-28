@@ -64,7 +64,7 @@ const MUIDateInput = forwardRef((props, ref) =>
   <TextField
     ref={ref}
     variant="standard"
-    sx={{ width: "100%" }}
+    sx={{ width: "100%", flexGrow: 1, "& div": { height: 40 } }}
     value={props.value}
     onClick={props.onClick}
   />

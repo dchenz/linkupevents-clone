@@ -1,6 +1,7 @@
 import { ArrowForward, Search } from "@mui/icons-material";
-import { FormGroup, IconButton, InputAdornment, TextField, Typography } from "@mui/material";
+import { FormGroup, InputAdornment, TextField, Typography } from "@mui/material";
 import React, { useState } from "react";
+import IconButton from "../../components/IconButton";
 
 export default function SearchField(props) {
   const [value, setValue] = useState("");
@@ -19,14 +20,16 @@ export default function SearchField(props) {
                 <Search />
               </InputAdornment>
             ),
+            endAdornment: (
+              <IconButton type="submit">
+                <ArrowForward />
+              </IconButton>
+            )
           }}
           sx={{ flexGrow: 1 }}
           value={value}
           onChange={(e) => setValue(e.target.value)}
         />
-        <IconButton type="submit">
-          <ArrowForward />
-        </IconButton>
       </FormGroup>
     </form>
   );

@@ -1,8 +1,18 @@
+.event-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: unset;
+}
+
+.event-card img {
+    object-fit: cover;
+}
+
 .react-datepicker__close-icon::after {
     background-color: transparent !important;
     color: #000 !important;
-    border: solid black 1.5px;
-    font-weight: 700;
+    font-size: 24px !important;
 }
 
 @media only screen and (max-width: 899.5px) {

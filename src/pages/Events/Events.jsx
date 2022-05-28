@@ -2,11 +2,11 @@ import { Container, Grid, Paper } from "@mui/material";
 import React, { useEffect, useMemo, useState } from "react";
 import getEvents from "../../api/GetEvents";
 import Loading from "../../components/Loading";
-import SearchField from "../../components/SearchField";
 import AdvancedFilters from "./AdvancedFilters";
 import { applyFilters, dateFilter, daysFilter, multiDayFilter, useFuse } from "./DataTransforms";
 import { FinishDatePicker, StartDatePicker } from "./DatePicker";
 import EventsGrid from "./EventsGrid";
+import SearchField from "./SearchField";
 import "./styles.css";
 
 const fuse = useFuse();
@@ -60,15 +60,15 @@ export default function Events() {
 
   return (
     <Container>
-      <Grid component={Paper} container my={5} p={5}>
-        <Grid item md={6} width="100%" p={1}>
+      <Grid component={Paper} container my={5} p={3}>
+        <Grid item md={4} width="100%" p={1}>
           <SearchField
             title="Search for events"
             buttonText="Find"
             onSearch={setSearchString}
           />
         </Grid>
-        <Grid item md={3} width="100%" p={1}>
+        <Grid item md={4} width="100%" p={1}>
           <StartDatePicker
             label={byInterval ? "Start time" : "Starts after"}
             startDate={startDate}
@@ -76,7 +76,7 @@ export default function Events() {
             setDate={setStartDate}
           />
         </Grid>
-        <Grid item md={3} width="100%" p={1}>
+        <Grid item md={4} width="100%" p={1}>
           <FinishDatePicker
             label={byInterval ? "End time" : "Ends before"}
             startDate={startDate}
@@ -84,7 +84,7 @@ export default function Events() {
             setDate={setFinishDate}
           />
         </Grid>
-        <Grid item md={12} width="100%" p={1}>
+        <Grid item md={12} width="100%" p={1} mt={1}>
           <AdvancedFilters
             days={days}
             setDays={setDays}

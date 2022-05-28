@@ -1,10 +1,11 @@
-import { AppBar, Box, IconButton, Menu, MenuItem, Toolbar } from "@mui/material";
+import { Menu as MenuIcon } from "@mui/icons-material";
+import { AppBar, Box, Menu, MenuItem, Toolbar } from "@mui/material";
 import React, { useRef, useState } from "react";
+import IconButton from "../../components/IconButton";
 import { PageRoutes } from "../../configuration/routes";
 import LinkupLogo from "./logo.png";
 import NavBrand from "./NavBrand";
 import NavLink from "./NavLink";
-import { Menu as MenuIcon } from "@mui/icons-material";
 
 const ROUTES = [
   { name: "Home", href: PageRoutes.home },

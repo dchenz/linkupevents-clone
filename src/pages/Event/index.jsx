@@ -1,9 +1,10 @@
 import { Facebook, InsertInvitation } from "@mui/icons-material";
-import { Avatar, Box, Chip, Container, Grid, IconButton, Paper, Typography } from "@mui/material";
+import { Avatar, Box, Chip, Container, Grid, Paper, Typography } from "@mui/material";
 import { format } from "date-fns";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import getEvent from "../../api/GetEvent";
+import IconButton from "../../components/IconButton";
 import Loading from "../../components/Loading";
 import downloadICS from "./CalendarInvite";
 
@@ -100,10 +101,18 @@ export default function Event() {
             </Box>
           </Box>
           <Box component={Paper} p={3} mb={3}>
-            <IconButton href={event.url} target="_blank" rel="noreferrer noopener">
+            <IconButton
+              tooltip="View on Facebook"
+              href={event.url}
+              target="_blank"
+              rel="noreferrer noopener"
+            >
               <Facebook fontSize="large" htmlColor="#4267B2" />
             </IconButton>
-            <IconButton onClick={() => downloadICS(event)}>
+            <IconButton
+              tooltip="Add to calendar"
+              onClick={() => downloadICS(event)}
+            >
               <InsertInvitation fontSize="large" />
             </IconButton>
           </Box>

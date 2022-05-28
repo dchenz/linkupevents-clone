@@ -1,6 +1,7 @@
 import { Close, Settings } from "@mui/icons-material";
-import { Box, Divider, IconButton, Modal } from "@mui/material";
+import { Box, Divider, Modal } from "@mui/material";
 import React, { useContext } from "react";
+import IconButton from "../../components/IconButton";
 import CalendarContext, { setModalOpen } from "./Context/CalendarContext";
 import "./styles.css";
 import TimetableUpload from "./TimetableUpload";

@@ -1,7 +1,8 @@
 import { Delete, UploadFile } from "@mui/icons-material";
-import { Box, Button, IconButton, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import { format } from "date-fns";
 import React, { useContext, useState } from "react";
+import IconButton from "../../components/IconButton";
 import CalendarContext, { setEvents, setTimetable } from "./Context/CalendarContext";
 import { readTimetableFile, saveTimetableToCache } from "./ParseICSFile";
 import "./styles.css";

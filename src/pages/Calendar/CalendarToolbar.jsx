@@ -1,7 +1,8 @@
 import { ArrowLeft, ArrowRight } from "@mui/icons-material";
-import { Box, Button, IconButton } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import { format } from "date-fns";
 import React, { useMemo } from "react";
+import IconButton from "../../components/IconButton";
 import SettingsModal from "./SettingsModal";
 
 export default function CalendarToolbar(props) {
