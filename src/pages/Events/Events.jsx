@@ -2,14 +2,34 @@ import { Container, Grid, Paper } from "@mui/material";
 import React, { useEffect, useMemo, useState } from "react";
 import getEvents from "../../api/GetEvents";
 import Loading from "../../components/Loading";
+import SearchField, { useSearch } from "../../components/SearchField";
 import AdvancedFilters from "./AdvancedFilters";
-import { applyFilters, dateFilter, daysFilter, multiDayFilter, useFuse } from "./DataTransforms";
+import { applyFilters, dateFilter, daysFilter, multiDayFilter } from "./DataTransforms";
 import { FinishDatePicker, StartDatePicker } from "./DatePicker";
 import EventsGrid from "./EventsGrid";
-import SearchField from "./SearchField";
 import "./styles.css";
 
-const fuse = useFuse();
+const searchIndex = useSearch({
+  ignoreLocation: true,
+  keys: [
+    {
+      name: ["title"],
+      weight: 0.5
+    },
+    {
+      name: ["description"],
+      weight: 0.2
+    },
+    {
+      name: ["hosts", "name"],
+      weight: 0.2
+    },
+    {
+      name: ["categories"],
+      weight: 0.1
+    }
+  ]
+});
 
 export default function Events() {
   const [eventData, setEventData] = useState(null);
@@ -29,7 +49,7 @@ export default function Events() {
         midnightToday.setSeconds(0);
         setStartDate(midnightToday);
         setEventData(data);
-        fuse.init(data);
+        searchIndex.init(data);
       });
   }, []);
 
@@ -38,7 +58,7 @@ export default function Events() {
     if (eventData === null) {
       return null;
     }
-    return fuse.search(eventData, searchString);
+    return searchIndex.search(eventData, searchString);
   }, [eventData, searchString]);
 
   // Then, apply filters on the search results

@@ -1,7 +1,7 @@
 import { ArrowForward, Search } from "@mui/icons-material";
 import { FormGroup, InputAdornment, TextField, Typography } from "@mui/material";
 import React, { useState } from "react";
-import IconButton from "../../components/IconButton";
+import IconButton from "../IconButton";
 
 export default function SearchField(props) {
   const [value, setValue] = useState("");
