@@ -5,7 +5,7 @@ export default async function getSocieties(page, search, categories, tags) {
   const queryPayload = {
     page: page ?? 0,
     query: search ?? "",
-    filters: createFilterQuery(page, search, categories, tags) ?? ""
+    filters: createFilterQuery(categories, tags) ?? ""
   };
   return await jsonFetch(Properties.discover.url, {
     method: "POST",
@@ -17,14 +17,14 @@ export default async function getSocieties(page, search, categories, tags) {
   });
 }
 
-function createFilterQuery(page, search, categories, tags) {
+function createFilterQuery(categories, tags) {
   const components = [];
   if (categories?.length) {
     const categoryFilter = categories.map((c) => `categories:"${c}"`).join(" OR ");
     components.push("(" + categoryFilter + ")");
   }
   if (tags?.length) {
-    const tagFilter = categories.map((t) => `tags:"${t}"`).join(" AND ");
+    const tagFilter = tags.map((t) => `tags:"${t}"`).join(" AND ");
     components.push(tagFilter);
   }
   return components.join(" AND ");
