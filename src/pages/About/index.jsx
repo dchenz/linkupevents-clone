@@ -6,8 +6,8 @@ import TeamGraphic from "./team.png";
 export default function About() {
   return (
     <Container>
-      <Grid container>
-        <Grid item md={12} py={5}>
+      <Grid container my={4}>
+        <Grid item md={12} py={3}>
           <Typography variant="h3">
             About us
           </Typography>

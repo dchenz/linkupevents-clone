@@ -1,4 +1,4 @@
-import { Box, Checkbox, Container, FormControlLabel, FormGroup, Grid, Paper, Typography } from "@mui/material";
+import { Box, Container, Grid, Paper, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import getSocieties from "../../api/GetSocieties";
 import Loading from "../../components/Loading";
@@ -6,7 +6,7 @@ import SearchField from "../../components/SearchField";
 import { resolveCategoryValues } from "./Categories";
 import CategorySelector from "./CategorySelector";
 import SocietyResultsList from "./SocietyResultsList";
-import { Tags } from "./Tags";
+import TagSelector from "./TagSelector";
 
 export default function Discover() {
   const [societies, setSocieties] = useState(null);
@@ -49,7 +49,7 @@ export default function Discover() {
 
   return (
     <Container>
-      <Grid container my={4} p={1}>
+      <Grid container my={4}>
         <Grid item md={3} width="100%" p={2}>
           <Box component={Paper} p={2}>
             <Typography variant="h6" mb={2}>
@@ -64,29 +64,10 @@ export default function Discover() {
             <Typography variant="h6" mb={2}>
               Filters
             </Typography>
-            <FormGroup>
-              {
-                Tags.map((tag, k) =>
-                  <FormControlLabel
-                    key={k}
-                    label={tag}
-                    control={
-                      <Checkbox
-                        checked={selectedTags.includes(tag)}
-                        onChange={(e) => {
-                          if (e.target.checked) {
-                            selectedTags.push(tag);
-                          } else {
-                            selectedTags.splice(selectedTags.indexOf(tag), 1);
-                          }
-                          setSelectedTags([...selectedTags]);
-                        }}
-                      />
-                    }
-                  />
-                )
-              }
-            </FormGroup>
+            <TagSelector
+              tags={selectedTags}
+              onChange={setSelectedTags}
+            />
           </Box>
         </Grid>
         <Grid item md={9} width="100%" p={2}>

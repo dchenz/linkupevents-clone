@@ -1,4 +1,4 @@
-import { Container, Grid, Paper } from "@mui/material";
+import { Box, Container, Grid, Paper } from "@mui/material";
 import React, { useEffect, useMemo, useState } from "react";
 import getEvents from "../../api/GetEvents";
 import Loading from "../../components/Loading";
@@ -80,40 +80,42 @@ export default function Events() {
 
   return (
     <Container>
-      <Grid component={Paper} container my={5} p={3}>
-        <Grid item md={4} width="100%" p={1}>
-          <SearchField
-            title="Search for events"
-            onSearch={setSearchString}
-          />
+      <Box my={4} p={2}>
+        <Grid component={Paper} container p={3}>
+          <Grid item md={4} width="100%" p={1}>
+            <SearchField
+              title="Search for events"
+              onSearch={setSearchString}
+            />
+          </Grid>
+          <Grid item md={4} width="100%" p={1}>
+            <StartDatePicker
+              label={byInterval ? "Start time" : "Starts after"}
+              startDate={startDate}
+              finishDate={finishDate}
+              setDate={setStartDate}
+            />
+          </Grid>
+          <Grid item md={4} width="100%" p={1}>
+            <FinishDatePicker
+              label={byInterval ? "End time" : "Ends before"}
+              startDate={startDate}
+              finishDate={finishDate}
+              setDate={setFinishDate}
+            />
+          </Grid>
+          <Grid item md={12} width="100%" p={1} mt={1}>
+            <AdvancedFilters
+              days={days}
+              setDays={setDays}
+              hideMultiDay={hideMultiDay}
+              setHideMultiDay={setHideMultiDay}
+              byInterval={byInterval}
+              setByInterval={setByInterval}
+            />
+          </Grid>
         </Grid>
-        <Grid item md={4} width="100%" p={1}>
-          <StartDatePicker
-            label={byInterval ? "Start time" : "Starts after"}
-            startDate={startDate}
-            finishDate={finishDate}
-            setDate={setStartDate}
-          />
-        </Grid>
-        <Grid item md={4} width="100%" p={1}>
-          <FinishDatePicker
-            label={byInterval ? "End time" : "Ends before"}
-            startDate={startDate}
-            finishDate={finishDate}
-            setDate={setFinishDate}
-          />
-        </Grid>
-        <Grid item md={12} width="100%" p={1} mt={1}>
-          <AdvancedFilters
-            days={days}
-            setDays={setDays}
-            hideMultiDay={hideMultiDay}
-            setHideMultiDay={setHideMultiDay}
-            byInterval={byInterval}
-            setByInterval={setByInterval}
-          />
-        </Grid>
-      </Grid>
+      </Box>
       <EventsGrid data={displayedEvents} />
     </Container>
   );
