@@ -9,8 +9,9 @@ export default function CategorySelector(props) {
         mainCategories.map((name, k) =>
           <Button
             key={k}
+            variant={props.selected == name ? "contained" : "text"}
             sx={{ justifyContent: "left" }}
-            onClick={() => props.onChange(resolveCategoryValues(name))}
+            onClick={() => props.onChange(name)}
           >
             {name}
           </Button>
@@ -20,7 +21,7 @@ export default function CategorySelector(props) {
   );
 }
 
-function resolveCategoryValues(category) {
+export function resolveCategoryValues(category) {
   // "All" = no categories applied
   if (category == "All") {
     return [];

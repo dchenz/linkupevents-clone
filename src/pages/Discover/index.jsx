@@ -1,10 +1,9 @@
-/* eslint-disable no-unused-vars */
 import { Box, Checkbox, Container, FormControlLabel, FormGroup, Grid, Paper, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import getSocieties from "../../api/GetSocieties";
 import Loading from "../../components/Loading";
 import SearchField from "../../components/SearchField";
-import CategorySelector from "./CategorySelector";
+import CategorySelector, { resolveCategoryValues } from "./CategorySelector";
 import { Tags } from "./Tags";
 import SocietyResultsList from "./SocietyResultsList";
 
@@ -13,13 +12,13 @@ export default function Discover() {
   const [maxResults, setMaxResults] = useState(0);
   const [page, setPage] = useState(0);
   const [searchString, setSearchString] = useState("");
-  const [selectedCategories, setSelectedCategories] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedTags, setSelectedTags] = useState([]);
 
   // Retrieves page number zero on initial load
   // and when user specifies categories, tags, search query
   useEffect(() => {
-    getSocieties(0, searchString, selectedCategories, selectedTags)
+    getSocieties(0, searchString, resolveCategoryValues(selectedCategory), selectedTags)
       .then((data) => {
         setMaxResults(data.nbHits);
         setSocieties(data.hits);
@@ -27,13 +26,13 @@ export default function Discover() {
     if (page != 0) {
       setPage(0);
     }
-  }, [searchString, selectedCategories, selectedTags]);
+  }, [searchString, selectedCategory, selectedTags]);
 
   const getNextPage = () => {
     if (societies.length == maxResults) {
       return;
     }
-    getSocieties(page + 1, searchString, selectedCategories, selectedTags)
+    getSocieties(page + 1, searchString, resolveCategoryValues(selectedCategory), selectedTags)
       .then((data) => {
         // Append new data
         setSocieties([...societies, ...data.hits]);
@@ -53,7 +52,10 @@ export default function Discover() {
             <Typography variant="h6" mb={2}>
               Categories
             </Typography>
-            <CategorySelector onChange={setSelectedCategories} />
+            <CategorySelector
+              selected={selectedCategory}
+              onChange={setSelectedCategory}
+            />
           </Box>
           <Box component={Paper} p={2}>
             <Typography variant="h6" mb={2}>
