@@ -1,14 +1,14 @@
 import { Properties } from "../configuration/properties";
-import { fetchDataFromAPI, getDate, useCustomHosts } from "./Helpers";
+import { jsonFetch, getDate, useCustomHosts } from "./Helpers";
 
 export default async function getEvents() {
   // Get last update time from endpoint
-  const lastUpdateTime = await fetchDataFromAPI(Properties.lastUpdated);
+  const lastUpdateTime = await jsonFetch(Properties.lastUpdatedAPI);
   // Get cached event data if cached copy is good
   let eventsData = loadCachedEvents(lastUpdateTime);
   if (!eventsData) {
     // Fetch fresh data from API if no good cached copy
-    eventsData = await fetchDataFromAPI(Properties.events);
+    eventsData = await jsonFetch(Properties.allEventsAPI);
     // Save to cache
     saveEventsToCache(eventsData, lastUpdateTime);
   }

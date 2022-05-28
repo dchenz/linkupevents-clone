@@ -1,8 +1,8 @@
 import { parse } from "date-fns";
 import { Properties } from "../configuration/properties";
 
-export async function fetchDataFromAPI(url) {
-  const response = await fetch(url);
+export async function jsonFetch(url, options) {
+  const response = await fetch(url, options);
   return await response.json();
 }
 

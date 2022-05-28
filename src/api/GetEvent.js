@@ -1,9 +1,9 @@
 import { Properties } from "../configuration/properties";
-import { fetchDataFromAPI, getDate, useCustomHosts } from "./Helpers";
+import { jsonFetch, getDate, useCustomHosts } from "./Helpers";
 
 export default async function getEvent(id) {
-  const url = Properties.event + encodeURIComponent(id);
-  const eventData = await fetchDataFromAPI(url);
+  const url = Properties.eventAPI + encodeURIComponent(id);
+  const eventData = await jsonFetch(url);
   const customHosts = useCustomHosts();
   await customHosts.init();
   customHosts.apply(eventData);
