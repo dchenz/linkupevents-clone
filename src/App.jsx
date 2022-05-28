@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import { PageRoutes } from "./configuration/routes";
 import About from "./pages/About";
 import Calendar from "./pages/Calendar";
+import Discover from "./pages/Discover";
 import Event from "./pages/Event";
 import EventTable from "./pages/Events";
 
@@ -16,6 +17,7 @@ export default function App() {
         <Route path={PageRoutes.about} element={<About />} />
         <Route path={PageRoutes.allEvents} element={<EventTable />} />
         <Route path={PageRoutes.eventTemplate + "/:id"} element={<Event />} />
+        <Route path={PageRoutes.discover} element={<Discover />} />
         <Route path={PageRoutes.calendar} element={<Calendar />} />
       </Routes>
     </BrowserRouter>

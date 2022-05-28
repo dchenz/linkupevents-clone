@@ -1,0 +1,40 @@
+.society-card {
+    max-height: 150px;
+    padding: 1rem 0;
+    display: flex;
+    text-decoration: none;
+    color: #000;
+    transition: background-color 250ms;
+}
+
+.society-card:hover {
+    background-color: #f5f5f5;
+}
+
+.society-card-img {
+    width: 20%;
+    padding: 0 1rem;
+}
+
+.society-card-body {
+    width: 80%;
+    padding: 0 1rem;
+    max-height: 200px;
+    overflow: hidden;
+}
+
+.society-card-title, .society-card-description {
+    overflow: hidden;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+}
+
+.society-card-title {
+    -webkit-line-clamp: 1;
+}
+
+.society-card-description {
+    -webkit-line-clamp: 4;
+    font-size: small !important;
+}
