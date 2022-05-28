@@ -19,12 +19,12 @@ export default function Loading(props) {
       <BounceLoader
         size={128}
         color={color}
-        pr={3}
+        p={2}
       />
       <Typography
         variant="h4"
         color={color}
-        pl={3}
+        p={2}
       >
         {props.caption}
       </Typography>
