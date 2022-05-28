@@ -77,6 +77,11 @@ export default function Discover() {
               onSearch={setSearchString}
             />
           </Box>
+          <Box mb={2}>
+            <Typography>
+              Showing {maxResults} results
+            </Typography>
+          </Box>
           <Box component={Paper} p={2} mb={3}>
             <SocietyResultsList
               results={societies}
