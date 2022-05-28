@@ -38,3 +38,24 @@
     -webkit-line-clamp: 4;
     font-size: small !important;
 }
+
+.society-categories .group-nested {
+    padding-left: 1.75rem;
+}
+
+.society-categories .group-nested button {
+    font-size: small;
+
+}
+
+.society-categories button {
+    color: #444;
+    justify-content: left;
+    text-align: left;
+}
+
+/* MuiButton-contained indicates that a button is selected/active */
+.society-categories .MuiButton-contained {
+    background-color: #ff8f4e !important;
+    color: #fff !important;
+}

@@ -13,13 +13,15 @@ export default function Discover() {
   const [maxResults, setMaxResults] = useState(0);
   const [page, setPage] = useState(0);
   const [searchString, setSearchString] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedTags, setSelectedTags] = useState([]);
+  // Path should only be maximum 2 elements
+  // Accounts for the possibility of 2 main categories having the same sub-category
+  const [categoryPath, setCategoryPath] = useState(["All"]);
 
   // Retrieves page number zero on initial load
   // and when user specifies categories, tags, search query
   useEffect(() => {
-    getSocieties(0, searchString, resolveCategoryValues(selectedCategory), selectedTags)
+    getSocieties(0, searchString, resolveCategoryValues(categoryPath), selectedTags)
       .then((data) => {
         setMaxResults(data.nbHits);
         setSocieties(data.hits);
@@ -27,13 +29,13 @@ export default function Discover() {
     if (page != 0) {
       setPage(0);
     }
-  }, [searchString, selectedCategory, selectedTags]);
+  }, [searchString, categoryPath, selectedTags]);
 
   const getNextPage = () => {
     if (societies.length == maxResults) {
       return;
     }
-    getSocieties(page + 1, searchString, resolveCategoryValues(selectedCategory), selectedTags)
+    getSocieties(page + 1, searchString, resolveCategoryValues(categoryPath), selectedTags)
       .then((data) => {
         // Append new data
         setSocieties([...societies, ...data.hits]);
@@ -54,8 +56,8 @@ export default function Discover() {
               Categories
             </Typography>
             <CategorySelector
-              selected={selectedCategory}
-              onChange={setSelectedCategory}
+              category={categoryPath}
+              onClick={setCategoryPath}
             />
           </Box>
           <Box component={Paper} p={2}>

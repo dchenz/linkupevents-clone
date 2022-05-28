@@ -44,13 +44,20 @@ export const subCategoryMappings = Object.freeze({
   ]
 });
 
-export function resolveCategoryValues(category) {
-  // "All" = no categories applied
-  if (category == "All") {
+export function resolveCategoryValues(categoryPath) {
+  const [mainCategory, subCategory] = categoryPath;
+  // "All" = no categories selected
+  if (mainCategory == "All") {
     return [];
   }
-  if (category in subCategoryMappings) {
-    return [...subCategoryMappings[category]];
+  // Specific sub-category selected
+  if (subCategory) {
+    return [subCategory];
   }
-  return [category];
+  // Main category selected - has sub-categories
+  if (mainCategory in subCategoryMappings) {
+    return [...subCategoryMappings[mainCategory]];
+  }
+  // Main category selected - no sub-categories
+  return [mainCategory];
 }
