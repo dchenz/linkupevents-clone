@@ -84,7 +84,6 @@ export default function Events() {
         <Grid item md={4} width="100%" p={1}>
           <SearchField
             title="Search for events"
-            buttonText="Find"
             onSearch={setSearchString}
           />
         </Grid>
