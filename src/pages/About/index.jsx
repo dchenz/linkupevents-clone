@@ -7,12 +7,12 @@ export default function About() {
   return (
     <Container>
       <Grid container my={4}>
-        <Grid item md={12} py={3}>
-          <Typography variant="h3">
+        <Grid item md={12}>
+          <Typography variant="h3" px={2} py={4}>
             About us
           </Typography>
         </Grid>
-        <Grid item md={6} pr={4}>
+        <Grid item md={6} p={2}>
           <Typography>
             Welcome to LinkUp! LinkUp is a dedicated event tracker for universities.
             Our goal is to centralise events so that it&apos;s easier to find and navigate society events around campus.
@@ -29,7 +29,7 @@ export default function About() {
             that it took place a few days ago was just too common.
           </Typography>
         </Grid>
-        <Grid item md={6} pl={4}>
+        <Grid item md={6} p={2}>
           <div>
             <img
               src={TeamGraphic}
