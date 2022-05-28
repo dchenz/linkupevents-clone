@@ -1,6 +1,6 @@
 import { Button, ButtonGroup } from "@mui/material";
 import React from "react";
-import { mainCategories, subCategoryMappings } from "./Categories";
+import { mainCategories } from "./Categories";
 
 export default function CategorySelector(props) {
   return (
@@ -21,13 +21,5 @@ export default function CategorySelector(props) {
   );
 }
 
-export function resolveCategoryValues(category) {
-  // "All" = no categories applied
-  if (category == "All") {
-    return [];
-  }
-  if (category in subCategoryMappings) {
-    return [...subCategoryMappings[category]];
-  }
-  return [category];
-}
+
+

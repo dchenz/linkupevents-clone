@@ -43,3 +43,14 @@ export const subCategoryMappings = Object.freeze({
     "Projects"
   ]
 });
+
+export function resolveCategoryValues(category) {
+  // "All" = no categories applied
+  if (category == "All") {
+    return [];
+  }
+  if (category in subCategoryMappings) {
+    return [...subCategoryMappings[category]];
+  }
+  return [category];
+}

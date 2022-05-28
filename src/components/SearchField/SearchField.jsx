@@ -28,6 +28,7 @@ export default function SearchField(props) {
           }}
           sx={{ flexGrow: 1 }}
           value={value}
+          placeholder={props.placeholder}
           onChange={(e) => setValue(e.target.value)}
         />
       </FormGroup>

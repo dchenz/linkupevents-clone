@@ -3,9 +3,10 @@ import React, { useEffect, useState } from "react";
 import getSocieties from "../../api/GetSocieties";
 import Loading from "../../components/Loading";
 import SearchField from "../../components/SearchField";
-import CategorySelector, { resolveCategoryValues } from "./CategorySelector";
-import { Tags } from "./Tags";
+import { resolveCategoryValues } from "./Categories";
+import CategorySelector from "./CategorySelector";
 import SocietyResultsList from "./SocietyResultsList";
+import { Tags } from "./Tags";
 
 export default function Discover() {
   const [societies, setSocieties] = useState(null);
@@ -88,7 +89,10 @@ export default function Discover() {
         </Grid>
         <Grid item md={9} width="100%" p={2}>
           <Box component={Paper} p={2} mb={3}>
-            <SearchField onSearch={setSearchString} />
+            <SearchField
+              placeholder="Search for a club"
+              onSearch={setSearchString}
+            />
           </Box>
           <Box component={Paper} p={2} mb={3}>
             <SocietyResultsList
