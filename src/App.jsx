@@ -7,13 +7,14 @@ import Calendar from "./pages/Calendar";
 import Discover from "./pages/Discover";
 import Event from "./pages/Event";
 import EventTable from "./pages/Events";
+import Home from "./pages/Home";
 
 export default function App() {
   return (
     <BrowserRouter>
       <Navbar />
       <Routes>
-        <Route exact path={PageRoutes.home} element={<EventTable />} />
+        <Route exact path={PageRoutes.home} element={<Home />} />
         <Route path={PageRoutes.about} element={<About />} />
         <Route path={PageRoutes.allEvents} element={<EventTable />} />
         <Route path={PageRoutes.eventTemplate + "/:id"} element={<Event />} />
