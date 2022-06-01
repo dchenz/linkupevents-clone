@@ -1,47 +1,51 @@
 import { Container, Grid, Typography } from "@mui/material";
 import { isToday, isTomorrow } from "date-fns";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import getEvents from "../../api/GetEvents";
-import EventsGrid from "../../components/EventGrid";
 import Loading from "../../components/Loading";
+import EventCategory from "./EventCategory";
 
 export default function Home() {
   const [eventData, setEventData] = useState(null);
 
   useEffect(() => {
     getEvents()
-      .then(setEventData);
+      .then(() => setEventData([]));
   }, []);
+
+  const categories = useMemo(() => {
+    if (eventData) {
+      return groupEventsByCategory(eventData);
+    }
+  }, [eventData]);
 
   if (eventData === null) {
     return <Loading caption="Fetching events..." />;
   }
 
-  const eventsOnToday = eventData.filter((event) => isToday(event.time_start));
-  const eventsOnTomorrow = eventData.filter((event) => isTomorrow(event.time_start));
-
   return (
     <Container>
       <Grid container my={4}>
-        <Grid item md={12}>
-          <Typography variant="h1" px={2} py={4}>
-            Events on today
-          </Typography>
-          <EventsGrid
-            data={eventsOnToday}
-            rows={2}
-          />
-        </Grid>
-        <Grid item md={12}>
-          <Typography variant="h1" px={2} py={4}>
-            Events on tomorrow
-          </Typography>
-          <EventsGrid
-            data={eventsOnTomorrow}
-            rows={2}
-          />
-        </Grid>
+        <EventCategory title="Events on today" data={categories.onToday} />
+        <EventCategory title="Events on tomorrow" data={categories.onTomorrow} />
+        {
+          eventData.length ? null :
+            <Grid item>
+              <Typography variant="h3">
+                No events
+              </Typography>
+            </Grid>
+        }
       </Grid>
     </Container>
   );
+}
+
+function groupEventsByCategory(events) {
+  const onToday = events.filter((event) => isToday(event.time_start));
+  const onTomorrow = events.filter((event) => isTomorrow(event.time_start));
+  return {
+    onToday,
+    onTomorrow
+  };
 }
