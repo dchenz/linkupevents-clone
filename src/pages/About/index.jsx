@@ -1,6 +1,5 @@
 import { Container, Grid, Typography } from "@mui/material";
 import React from "react";
-import "./styles.css";
 import TeamGraphic from "./team.png";
 
 export default function About() {
@@ -8,7 +7,7 @@ export default function About() {
     <Container>
       <Grid container my={4}>
         <Grid item md={12}>
-          <Typography variant="h3" px={2} py={4}>
+          <Typography variant="h1" px={2} py={4}>
             About us
           </Typography>
         </Grid>
@@ -28,18 +27,17 @@ export default function About() {
             The feeling of discovering a free food event on campus (or any other event) just to find out
             that it took place a few days ago was just too common.
           </Typography>
+          <br />
+          <Typography color="gray">
+            Our team is composed of multiple computer science and software engineering students, as well as a few commerce students.
+          </Typography>
         </Grid>
         <Grid item md={6} p={2}>
-          <div>
-            <img
-              src={TeamGraphic}
-              alt="Graphic design of the Linkup team"
-              width="100%"
-            />
-            <Typography className="team-caption">
-              Our team is composed of multiple computer science and software engineering students, as well as a few commerce students.
-            </Typography>
-          </div>
+          <img
+            src={TeamGraphic}
+            alt="Graphic design of the Linkup team"
+            width="100%"
+          />
         </Grid>
       </Grid>
     </Container>
