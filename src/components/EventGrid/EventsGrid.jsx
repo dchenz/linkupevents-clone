@@ -7,9 +7,13 @@ export default function EventsGrid(props) {
     <Grid container spacing={5} mb={5} p={2}>
       {
         props.data.map((event, k) =>
-          <EventCard key={k} event={event} />
+          <Grid key={k} item md={4} width="100%">
+            <EventCard event={event} />
+          </Grid>
         )
       }
     </Grid>
   );
 }
+
+

@@ -1,12 +1,12 @@
 import { Box, Container, Grid, Paper } from "@mui/material";
 import React, { useEffect, useMemo, useState } from "react";
 import getEvents from "../../api/GetEvents";
+import EventsGrid from "../../components/EventGrid";
 import Loading from "../../components/Loading";
 import SearchField, { useSearch } from "../../components/SearchField";
 import AdvancedFilters from "./AdvancedFilters";
 import { applyFilters, dateFilter, daysFilter, multiDayFilter } from "./DataTransforms";
 import { FinishDatePicker, StartDatePicker } from "./DatePicker";
-import EventsGrid from "./EventsGrid";
 import "./styles.css";
 
 const searchIndex = useSearch({
