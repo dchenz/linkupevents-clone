@@ -27,13 +27,19 @@ export default function Home() {
           <Typography variant="h1" px={2} py={4}>
             Events on today
           </Typography>
-          <EventsGrid data={eventsOnToday} />
+          <EventsGrid
+            data={eventsOnToday}
+            rows={2}
+          />
         </Grid>
         <Grid item md={12}>
           <Typography variant="h1" px={2} py={4}>
             Events on tomorrow
           </Typography>
-          <EventsGrid data={eventsOnTomorrow} />
+          <EventsGrid
+            data={eventsOnTomorrow}
+            rows={2}
+          />
         </Grid>
       </Grid>
     </Container>
