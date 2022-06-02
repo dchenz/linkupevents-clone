@@ -9,6 +9,7 @@ import Discover from "./pages/Discover";
 import Event from "./pages/Event";
 import EventTable from "./pages/Events";
 import Home from "./pages/Home";
+import Society from "./pages/Society";
 import theme from "./theme";
 
 export default function App() {
@@ -22,6 +23,7 @@ export default function App() {
           <Route path={PageRoutes.allEvents} element={<EventTable />} />
           <Route path={PageRoutes.eventTemplate + "/:id"} element={<Event />} />
           <Route path={PageRoutes.discover} element={<Discover />} />
+          <Route path={PageRoutes.societyTemplate + "/:id"} element={<Society />} />
           <Route path={PageRoutes.calendar} element={<Calendar />} />
         </Routes>
       </BrowserRouter>
