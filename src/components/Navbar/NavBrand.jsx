@@ -13,14 +13,12 @@ export default function NavBrand(props) {
         height="48"
       />
       <Typography
-        component="a"
         sx={{
           ml: "0.5rem",
           fontWeight: 700,
           letterSpacing: "0.1rem",
           fontSize: "1.5rem",
           color: "#000",
-          textDecoration: "none",
           display: { xs: "none", md: "block" }
         }}
       >
