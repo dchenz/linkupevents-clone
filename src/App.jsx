@@ -3,13 +3,13 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import { PageRoutes } from "./configuration/routes";
-import About from "./pages/About";
-import Calendar from "./pages/Calendar";
-import Discover from "./pages/Discover";
-import Event from "./pages/Event";
-import EventTable from "./pages/Events";
-import Home from "./pages/Home";
-import Society from "./pages/Society";
+import AboutPage from "./pages/About";
+import CalendarPage from "./pages/Calendar";
+import DiscoverSocietiesPage from "./pages/Discover";
+import EventPage from "./pages/Event";
+import AllEventsPage from "./pages/Events";
+import HomePage from "./pages/Home";
+import SocietyPage from "./pages/Society";
 import theme from "./theme";
 
 export default function App() {
@@ -18,13 +18,13 @@ export default function App() {
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route exact path={PageRoutes.home} element={<Home />} />
-          <Route path={PageRoutes.about} element={<About />} />
-          <Route path={PageRoutes.allEvents} element={<EventTable />} />
-          <Route path={PageRoutes.eventTemplate + "/:id"} element={<Event />} />
-          <Route path={PageRoutes.discover} element={<Discover />} />
-          <Route path={PageRoutes.societyTemplate + "/:id"} element={<Society />} />
-          <Route path={PageRoutes.calendar} element={<Calendar />} />
+          <Route exact path={PageRoutes.home} element={<HomePage />} />
+          <Route path={PageRoutes.about} element={<AboutPage />} />
+          <Route path={PageRoutes.allEvents} element={<AllEventsPage />} />
+          <Route path={PageRoutes.eventTemplate + "/:id"} element={<EventPage />} />
+          <Route path={PageRoutes.discover} element={<DiscoverSocietiesPage />} />
+          <Route path={PageRoutes.societyTemplate + "/:id"} element={<SocietyPage />} />
+          <Route path={PageRoutes.calendar} element={<CalendarPage />} />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>

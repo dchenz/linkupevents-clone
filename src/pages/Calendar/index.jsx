@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import CalendarContext from "./Context/CalendarContext";
 import EventCalendar from "./EventCalendar";
 import "./styles.css";
+import { Helmet } from "react-helmet";
 
 export default function Calendar() {
   const [calendar, setCalendar] = useState({
@@ -11,6 +12,9 @@ export default function Calendar() {
   });
   return (
     <CalendarContext.Provider value={{ calendar, setCalendar }}>
+      <Helmet>
+        <title>LinkUp - Events Calendar</title>
+      </Helmet>
       <EventCalendar />
     </CalendarContext.Provider>
   );

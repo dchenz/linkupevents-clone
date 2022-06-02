@@ -31,7 +31,7 @@ const searchIndex = useSearch({
   ]
 });
 
-export default function Events() {
+export default function AllEventsPage() {
   const [events, setEvents] = useState(null);
   const [searchString, setSearchString] = useState("");
   const [startDate, setStartDate] = useState(null);
