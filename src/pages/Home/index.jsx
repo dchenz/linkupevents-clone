@@ -1,22 +1,23 @@
 import { Container, Grid, Typography } from "@mui/material";
-import { isToday, isTomorrow } from "date-fns";
+import { isThisMonth, isThisWeek, isToday, isTomorrow } from "date-fns";
 import React, { useEffect, useMemo, useState } from "react";
 import getEvents from "../../api/GetEvents";
 import LastUpdateTime from "../../components/LastUpdateTime";
 import Loading from "../../components/Loading";
 import EventCategory from "./EventCategory";
-import NoEvents from "./NoEvents";
 
 export default function Home() {
   const [events, setEvents] = useState(null);
   const [lastUpdate, setLastUpdate] = useState(null);
 
+  const loadEvents = (data) => {
+    setEvents(data.events);
+    setLastUpdate(data.lastUpdate);
+  };
+
   useEffect(() => {
     getEvents()
-      .then((data) => {
-        setEvents(data.events);
-        setLastUpdate(data.lastUpdate);
-      });
+      .then(loadEvents);
   }, []);
 
   const categories = useMemo(() => {
@@ -38,28 +39,42 @@ export default function Home() {
           </Typography>
           <LastUpdateTime
             date={lastUpdate}
-            onRefresh={(newEvents, updateTime) => {
-              setEvents(newEvents);
-              setLastUpdate(updateTime);
-            }}
+            onRefresh={loadEvents}
           />
         </Grid>
         <EventCategory title="Events on today" data={categories.onToday} />
         <EventCategory title="Events on tomorrow" data={categories.onTomorrow} />
-        {
-          events.length ? null :
-            <NoEvents />
-        }
+        <EventCategory title="Events on this week" data={categories.onThisWeek} />
+        <EventCategory title="Events on this month" data={categories.onThisMonth} />
       </Grid>
     </Container>
   );
 }
 
 function groupEventsByCategory(events) {
-  const onToday = events.filter((event) => isToday(event.time_start));
-  const onTomorrow = events.filter((event) => isTomorrow(event.time_start));
+  const onToday = [];
+  const onTomorrow = [];
+  const onThisWeek = [];
+  const onThisMonth = [];
+  const futureEvents = [];
+  for (const event of events) {
+    if (isToday(event.time_start)) {
+      onToday.push(event);
+    } else if (isTomorrow(event.time_start)) {
+      onTomorrow.push(event);
+    } else if (isThisWeek(event.time_start)) {
+      onThisWeek.push(event);
+    } else if (isThisMonth(event.time_start)) {
+      onThisMonth.push(event);
+    } else {
+      futureEvents.push(event);
+    }
+  }
   return {
     onToday,
-    onTomorrow
+    onTomorrow,
+    onThisWeek,
+    onThisMonth,
+    futureEvents
   };
 }

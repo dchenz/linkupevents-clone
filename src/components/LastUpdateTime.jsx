@@ -11,7 +11,7 @@ export default function LastUpdateTime(props) {
     setLoading(true);
     getEvents()
       .then((data) => {
-        props.onRefresh(data.events, data.lastUpdate);
+        props.onRefresh(data);
         setLoading(false);
       });
   };
