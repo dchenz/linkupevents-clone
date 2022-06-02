@@ -1,6 +1,6 @@
 import { Box, Paper, Typography } from "@mui/material";
 import React from "react";
-import SocialLinksButton from "./SocialLinkButton";
+import SocialsButton from "./SocialsButton";
 
 export default function ContactLinks({ society }) {
   return (
@@ -16,7 +16,7 @@ export default function ContactLinks({ society }) {
       <Box mt={2}>
         {
           Object.entries(society.socials).map((item, k) =>
-            <SocialLinksButton
+            <SocialsButton
               key={k}
               type={item[0]}
               value={item[1]}

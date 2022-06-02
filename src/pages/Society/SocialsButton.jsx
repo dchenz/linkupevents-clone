@@ -2,7 +2,7 @@ import { Facebook, Language } from "@mui/icons-material";
 import { Button } from "@mui/material";
 import React from "react";
 
-export default function SocialLinksButton({ type, value }) {
+export default function SocialsButton({ type, value }) {
   if (!value) {
     return null;
   }
@@ -26,6 +26,7 @@ function WebsiteButton({ value }) {
       startIcon={<Language />}
       href={value}
       rel="noopener noreferrer"
+      target="_blank"
     >
       Website
     </Button>
@@ -41,6 +42,7 @@ function FacebookPage({ value }) {
       startIcon={<Facebook />}
       href={value}
       rel="noopener noreferrer"
+      target="_blank"
     >
       Facebook Page
     </Button>
@@ -56,6 +58,7 @@ function FacebookGroup({ value }) {
       startIcon={<Facebook />}
       href={value}
       rel="noopener noreferrer"
+      target="_blank"
     >
       Facebook Group
     </Button>
