@@ -10,7 +10,7 @@ export default function Home() {
 
   useEffect(() => {
     getEvents()
-      .then(() => setEventData([]));
+      .then(setEventData);
   }, []);
 
   const categories = useMemo(() => {
