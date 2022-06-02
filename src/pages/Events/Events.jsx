@@ -32,7 +32,7 @@ const searchIndex = useSearch({
 });
 
 export default function Events() {
-  const [eventData, setEventData] = useState(null);
+  const [events, setEvents] = useState(null);
   const [searchString, setSearchString] = useState("");
   const [startDate, setStartDate] = useState(null);
   const [finishDate, setFinishDate] = useState(null);
@@ -48,18 +48,18 @@ export default function Events() {
         midnightToday.setMinutes(0);
         midnightToday.setSeconds(0);
         setStartDate(midnightToday);
-        setEventData(data);
-        searchIndex.init(data);
+        setEvents(data.events);
+        searchIndex.init(data.events);
       });
   }, []);
 
   // Search for events first
   const searchedEvents = useMemo(() => {
-    if (eventData === null) {
+    if (events === null) {
       return null;
     }
-    return searchIndex.search(eventData, searchString);
-  }, [eventData, searchString]);
+    return searchIndex.search(events, searchString);
+  }, [events, searchString]);
 
   // Then, apply filters on the search results
   const displayedEvents = useMemo(() => {

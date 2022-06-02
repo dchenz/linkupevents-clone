@@ -1,9 +1,10 @@
 import { Properties } from "../configuration/properties";
+import getLastUpdateTime from "./GetLastUpdateTime";
 import { jsonFetch, getDate, useCustomHosts } from "./Helpers";
 
 export default async function getEvents() {
   // Get last update time from endpoint
-  const lastUpdateTime = await jsonFetch(Properties.lastUpdatedAPI);
+  const lastUpdateTime = await getLastUpdateTime();
   // Get cached event data if cached copy is good
   let eventsData = loadCachedEvents(lastUpdateTime);
   if (!eventsData) {
@@ -21,7 +22,10 @@ export default async function getEvents() {
     event["time_start"] = getDate(event["time_start"]);
     event["time_finish"] = getDate(event["time_finish"]);
   }
-  return eventsData;
+  return {
+    events: eventsData,
+    lastUpdate: lastUpdateTime
+  };
 }
 
 function loadCachedEvents(lastUpdateTime) {

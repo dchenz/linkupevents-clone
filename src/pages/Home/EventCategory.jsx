@@ -8,7 +8,7 @@ export default function EventsToday(props) {
   }
   return (
     <Grid item md={12}>
-      <Typography variant="h1" px={2} py={4}>
+      <Typography variant="h2" px={2} py={4}>
         {props.title}
       </Typography>
       <EventsGrid
