@@ -54,7 +54,7 @@ export default function Society() {
               Description
             </Typography>
             <Box mt={2}>
-              <Typography>
+              <Typography whiteSpace="pre-line">
                 {society.description}
               </Typography>
             </Box>
