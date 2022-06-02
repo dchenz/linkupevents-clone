@@ -14,8 +14,8 @@ export default function EventCalendar() {
 
   useEffect(() => {
     getEvents()
-      .then((data) => {
-        const displayedEvents = data.filter(isDisplayedOnCalendar).map(toCalendarEvent);
+      .then(({ events }) => {
+        const displayedEvents = events.filter(isDisplayedOnCalendar).map(toCalendarEvent);
         const cachedTimetableData = loadTimetableFromCache();
         setCalendar({
           ...calendar,
