@@ -17,7 +17,7 @@ export default function Event() {
       .then(setEvent);
   }, []);
 
-  if (event == null) {
+  if (event === null) {
     return <Loading caption="Fetching event info..." />;
   }
 
