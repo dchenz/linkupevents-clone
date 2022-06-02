@@ -1,6 +1,7 @@
 import { Properties } from "../configuration/properties";
+import { applyCustomHostsToEvent, getCustomHosts } from "./GetCustomHosts";
 import getLastUpdateTime from "./GetLastUpdateTime";
-import { jsonFetch, getDate, useCustomHosts } from "./Helpers";
+import { getDate, jsonFetch } from "./Helpers";
 
 export default async function getEvents() {
   // Get last update time from endpoint
@@ -14,11 +15,10 @@ export default async function getEvents() {
     saveEventsToCache(eventsData, lastUpdateTime);
   }
   // Fetch the custom hosts file
-  const customHosts = useCustomHosts();
-  await customHosts.init();
+  const customHosts = await getCustomHosts();
   for (const event of eventsData) {
     // Replace host logos with custom image
-    customHosts.apply(event);
+    applyCustomHostsToEvent(customHosts, event);
     event["time_start"] = getDate(event["time_start"]);
     event["time_finish"] = getDate(event["time_finish"]);
   }

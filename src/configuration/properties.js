@@ -6,6 +6,7 @@ export const Properties = Object.freeze({
     clientID: "PCE5MFPMY7",
     clientKey: "5b236d8de01cf79fbd32b8c0ff1fb86c"
   },
+  societyAPI: "https://api.linkupevents.com.au/unsw/club?id=",
   lastUpdatedAPI: "https://dev-api.linkupevents.com.au/last-updated?uni=unsw",
   customHostsFile: "/custom-hosts.json",
   ignoreHostImage: "https://cdn.linkupevents.com.au/society/default.jpg"
