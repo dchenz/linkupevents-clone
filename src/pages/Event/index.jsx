@@ -36,7 +36,7 @@ export default function Event() {
           <img src={event.image_url} alt={event.title} width="100%" />
         </Grid>
         <Grid item md={7} width="100%" p={1} sx={{ display: "flex", flexDirection: "column" }}>
-          <Typography variant="h4">
+          <Typography variant="h1">
             {event.title}
           </Typography>
           <Box mt={1}>
