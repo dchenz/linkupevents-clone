@@ -37,7 +37,7 @@ export default function EventCard({ event }) {
       <CardActions>
         <IconButton
           tooltip="View event"
-          href={`${PageRoutes.eventTemplate}/${event.id}`}
+          href={`${PageRoutes.eventTemplateLong}/${event.id}`}
         >
           <Search />
         </IconButton>

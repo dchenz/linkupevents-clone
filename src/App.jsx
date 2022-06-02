@@ -20,11 +20,15 @@ export default function App() {
         <Routes>
           <Route exact path={PageRoutes.home} element={<HomePage />} />
           <Route path={PageRoutes.about} element={<AboutPage />} />
-          <Route path={PageRoutes.allEvents} element={<AllEventsPage />} />
-          <Route path={PageRoutes.eventTemplate + "/:id"} element={<EventPage />} />
-          <Route path={PageRoutes.discover} element={<DiscoverSocietiesPage />} />
-          <Route path={PageRoutes.societyTemplate + "/:id"} element={<SocietyPage />} />
           <Route path={PageRoutes.calendar} element={<CalendarPage />} />
+          {/* Event template can be accessed using short/long variants */}
+          <Route path={PageRoutes.allEvents} element={<AllEventsPage />} />
+          <Route path={PageRoutes.eventTemplateShort + "/:id"} element={<EventPage />} />
+          <Route path={PageRoutes.eventTemplateLong + "/:id"} element={<EventPage />} />
+          {/* Club template can be accessed using short/long variants */}
+          <Route path={PageRoutes.clubs} element={<DiscoverSocietiesPage />} />
+          <Route path={PageRoutes.clubTemplateShort + "/:id"} element={<SocietyPage />} />
+          <Route path={PageRoutes.clubTemplateLong + "/:id"} element={<SocietyPage />} />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>

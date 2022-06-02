@@ -1,9 +1,11 @@
 export const PageRoutes = Object.freeze({
   home: "/",
   about: "/about",
+  calendar: "/calendar",
   allEvents: "/events",
-  eventTemplate: "/e",
-  discover: "/discover",
-  societyTemplate: "/s",
-  calendar: "/calendar"
+  eventTemplateShort: "/e",
+  eventTemplateLong: "/events",
+  clubs: "/clubs",
+  clubTemplateShort: "/c",
+  clubTemplateLong: "/clubs"
 });

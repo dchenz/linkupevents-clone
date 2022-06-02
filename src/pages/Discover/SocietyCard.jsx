@@ -7,7 +7,7 @@ import { PageRoutes } from "../../configuration/routes";
 export default function SocietyCard({ society }) {
   return (
     <Grid item md={6}>
-      <Link className="society-card" to={`${PageRoutes.societyTemplate}/${society.clean_id}`}>
+      <Link className="society-card" to={`${PageRoutes.clubTemplateLong}/${society.clean_id}`}>
         <Box className="society-card-img">
           <img
             src={society.icon_url}
