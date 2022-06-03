@@ -21,7 +21,7 @@ export default function EventPage() {
   return (
     <React.Fragment>
       <Helmet>
-        <title>LinkUp - Events - {event.title}</title>
+        <title>Events - {event.title}</title>
       </Helmet>
       <Page event={event} />
     </React.Fragment>

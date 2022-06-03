@@ -21,7 +21,7 @@ export default function SocietyPage() {
   return (
     <React.Fragment>
       <Helmet>
-        <title>LinkUp - Clubs - {society.club_name}</title>
+        <title>Clubs - {society.club_name}</title>
       </Helmet>
       <Page society={society} />
     </React.Fragment>
