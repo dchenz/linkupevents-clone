@@ -2,7 +2,7 @@ import { CssBaseline } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Navbar from "./components/Navbar";
+import PageNavbar from "./components/Navbar";
 import { PageRoutes } from "./configuration/routes";
 import AboutPage from "./pages/About";
 import CalendarPage from "./pages/Calendar";
@@ -18,7 +18,7 @@ export default function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <BrowserRouter>
-        <Navbar />
+        <PageNavbar />
         <Routes>
           <Route exact path={PageRoutes.home} element={<HomePage />} />
           <Route path={PageRoutes.about} element={<AboutPage />} />

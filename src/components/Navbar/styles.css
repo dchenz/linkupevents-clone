@@ -1,5 +1,18 @@
-.nav-brand {
+#nav-brand {
     display: flex;
     align-items: center;
     text-decoration: none;
+}
+
+#nav-brand span {
+    margin-left: 0.5rem;
+    font-weight: 700;
+    letter-spacing: 0.1rem;
+    font-size: 1.5rem;
+    color: #000;
+}
+
+.nav-link-btn {
+    font-size: 1rem !important;
+    color: #000 !important;
 }
