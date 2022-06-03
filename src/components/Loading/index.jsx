@@ -1,29 +1,21 @@
 import { Box, Typography } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 import React from "react";
 import { BounceLoader } from "react-spinners";
-
-const loadingStyles = {
-  width: "100%",
-  height: "calc(100vh - 70px)",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center"
-};
-
-// Will move into global theming later
-const color = "#e34329";
+import "./styles.css";
 
 export default function Loading(props) {
+  const theme = useTheme();
   return (
-    <Box sx={loadingStyles}>
+    <Box className="loading-splash">
       <BounceLoader
         size={128}
-        color={color}
+        color={theme.palette.primary.main}
         p={2}
       />
       <Typography
         variant="h4"
-        color={color}
+        color="primary"
         p={2}
       >
         {props.caption}
