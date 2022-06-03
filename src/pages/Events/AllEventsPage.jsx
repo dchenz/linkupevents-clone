@@ -116,7 +116,9 @@ export default function AllEventsPage() {
           </Grid>
         </Grid>
       </Box>
-      <EventsGrid data={displayedEvents} />
+      <Box p={2}>
+        <EventsGrid data={displayedEvents} />
+      </Box>
     </Container>
   );
 }

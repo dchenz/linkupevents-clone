@@ -10,7 +10,7 @@ export default function ContactLinks({ society }) {
     return null;
   }
   return (
-    <Box component={Paper} p={3} mb={3}>
+    <Box component={Paper} p={3}>
       <Typography variant="h5">
         Contact
       </Typography>

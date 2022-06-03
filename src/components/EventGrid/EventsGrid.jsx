@@ -16,7 +16,7 @@ export default function EventsGrid(props) {
     hasMoreEvents = props.data.length > maximumPreviewCards;
   }
   return (
-    <Box mb={hasMoreEvents ? 1 : 3} p={2}>
+    <Box mb={hasMoreEvents ? 1 : 3}>
       <Grid container spacing={5}>
         {
           displayedEvents.map((event, k) =>
