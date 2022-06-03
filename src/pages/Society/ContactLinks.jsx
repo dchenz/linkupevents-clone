@@ -3,7 +3,11 @@ import React from "react";
 import SocialsButton from "./SocialsButton";
 
 export default function ContactLinks({ society }) {
-  const { email, ...socials } = society.socials;
+  let { email, ...socials } = society.socials;
+  // Some societies have email as "0" for some reason
+  if (email == "0") {
+    email = null;
+  }
   const hasSocials = Object.keys(socials).length > 0;
   // Return NULL if no email nor social media links
   if (!email && !hasSocials) {

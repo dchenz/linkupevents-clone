@@ -21,6 +21,13 @@ function WebsiteButton({ value }) {
   if (!isValidURL(value)) {
     return null;
   }
+  if (value.startsWith("http://")) {
+    // Websites should be using https:// anyway...
+    value = "https://" + value.substring(7);
+  } else if (!value.startsWith("https://")) {
+    // Some website URLs don't start with http:// nor https://
+    value = "https://" + value;
+  }
   return (
     <Button
       startIcon={<Language />}
