@@ -10,22 +10,27 @@ export default function TagSelector(props) {
           <FormControlLabel
             key={k}
             label={tag}
-            control={
-              <Checkbox
-                checked={props.tags.includes(tag)}
-                onChange={(e) => {
-                  if (e.target.checked) {
-                    props.tags.push(tag);
-                  } else {
-                    props.tags.splice(props.tags.indexOf(tag), 1);
-                  }
-                  props.onChange([...props.tags]);
-                }}
-              />
-            }
+            control={<TagCheckbox {...props} label={tag} />}
           />
         )
       }
     </FormGroup>
+  );
+}
+
+function TagCheckbox(props) {
+  const onChange = (e) => {
+    if (e.target.checked) {
+      props.tags.push(props.label);
+    } else {
+      props.tags.splice(props.tags.indexOf(props.label), 1);
+    }
+    props.onChange([...props.tags]);
+  };
+  return (
+    <Checkbox
+      checked={props.tags.includes(props.label)}
+      onChange={onChange}
+    />
   );
 }

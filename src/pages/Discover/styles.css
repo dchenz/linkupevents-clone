@@ -45,7 +45,6 @@
 
 .society-categories .group-nested button {
     font-size: small;
-
 }
 
 .society-categories button {
@@ -56,6 +55,10 @@
 
 /* MuiButton-contained indicates that a button is selected/active */
 .society-categories .MuiButton-contained {
-    background-color: #ff8f4e !important;
     color: #fff !important;
+}
+
+.society-no-results {
+    width: 100%;
+    text-align: center;
 }

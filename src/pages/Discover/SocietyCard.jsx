@@ -1,8 +1,8 @@
 import { Box, Grid, Typography } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
-import "./styles.css";
 import { PageRoutes } from "../../configuration/routes";
+import "./styles.css";
 
 export default function SocietyCard({ society }) {
   return (

@@ -43,8 +43,8 @@ function ExpandedCategorySelector(props) {
   }
   return (
     <ButtonGroup
-      orientation="vertical"
       variant="text"
+      orientation="vertical"
       className="society-categories group-nested"
     >
       {

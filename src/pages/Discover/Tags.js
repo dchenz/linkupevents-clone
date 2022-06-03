@@ -1,4 +1,4 @@
-export const Tags = Object.freeze([
+export const Tags = [
   "AHEGS",
   "New"
-]);
+];

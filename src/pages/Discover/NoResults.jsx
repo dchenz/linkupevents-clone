@@ -1,9 +1,10 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
+import "./styles.css";
 
 export default function NoResults() {
   return (
-    <Box sx={{ width: "100%", textAlign: "center" }} py={2}>
+    <Box className="society-no-results" py={2}>
       <Typography variant="h5">
         No results 😔
       </Typography>

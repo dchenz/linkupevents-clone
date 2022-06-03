@@ -1,4 +1,4 @@
-export const mainCategories = Object.freeze([
+export const mainCategories = [
   "All",
   "Academic/Career",
   "Campus Communities",
@@ -11,9 +11,9 @@ export const mainCategories = Object.freeze([
   "Religious/Spiritual",
   "Sports & Fitness",
   "Volunteering"
-]);
+];
 
-export const subCategoryMappings = Object.freeze({
+export const subCategoryMappings = {
   "Academic/Career": [
     "Arts, Design & Architecture",
     "Business & Law",
@@ -42,7 +42,7 @@ export const subCategoryMappings = Object.freeze({
     "Charity",
     "Projects"
   ]
-});
+};
 
 export function resolveCategoryValues(categoryPath) {
   const [mainCategory, subCategory] = categoryPath;
