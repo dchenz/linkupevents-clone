@@ -4,9 +4,15 @@ import Tooltip from "@mui/material/Tooltip";
 
 const IconButton = forwardRef(({ tooltip, ...props }, ref) => {
 
-  const btn = <MUIIconButton {...props} ref={ref}>
-    {props.children}
-  </MUIIconButton>;
+  const btn = (
+    <MUIIconButton
+      {...props}
+      ref={ref}
+      color={props.color ?? "secondary"}
+    >
+      {props.children}
+    </MUIIconButton>
+  );
 
   if (tooltip) {
     return (
