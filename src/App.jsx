@@ -5,7 +5,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import PageNavbar from "./components/Navbar";
 import { PageRoutes } from "./configuration/routes";
 import AboutPage from "./pages/About";
-import CalendarPage from "./pages/Calendar";
 import DiscoverSocietiesPage from "./pages/Discover";
 import EventPage from "./pages/Event";
 import AllEventsPage from "./pages/Events";
@@ -22,7 +21,6 @@ export default function App() {
         <Routes>
           <Route exact path={PageRoutes.home} element={<HomePage />} />
           <Route path={PageRoutes.about} element={<AboutPage />} />
-          <Route path={PageRoutes.calendar} element={<CalendarPage />} />
           {/* Event template can be accessed using short/long variants */}
           <Route path={PageRoutes.allEvents} element={<AllEventsPage />} />
           <Route path={PageRoutes.eventTemplateShort + "/:id"} element={<EventPage />} />

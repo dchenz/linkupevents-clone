@@ -6,8 +6,7 @@ const routesConfig = [
   { name: "Home", href: PageRoutes.home },
   { name: "About", href: PageRoutes.about },
   { name: "Events", href: PageRoutes.allEvents },
-  { name: "Discover", href: PageRoutes.clubs },
-  { name: "Calendar", href: PageRoutes.calendar }
+  { name: "Discover", href: PageRoutes.clubs }
 ];
 
 export default function PageNavbar() {

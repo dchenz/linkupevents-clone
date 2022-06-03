@@ -1,7 +1,6 @@
 export const PageRoutes = Object.freeze({
   home: "/",
   about: "/about",
-  calendar: "/calendar",
   allEvents: "/events",
   eventTemplateShort: "/e",
   eventTemplateLong: "/events",
