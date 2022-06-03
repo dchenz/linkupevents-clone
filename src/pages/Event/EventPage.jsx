@@ -1,7 +1,8 @@
 import { Facebook, InsertInvitation } from "@mui/icons-material";
-import { Avatar, Box, Chip, Container, Grid, Paper, Typography } from "@mui/material";
+import { Box, Chip, Container, Grid, Paper, Typography } from "@mui/material";
 import { format } from "date-fns";
 import React from "react";
+import AvatarLink from "../../components/AvatarLink";
 import IconButton from "../../components/IconButton";
 import downloadICS from "./CalendarInvite";
 
@@ -54,9 +55,11 @@ export default function EventPage({ event }) {
             {
               event.hosts.map((host, k) =>
                 <Box key={k} mt={2} sx={{ display: "flex", alignItems: "center" }}>
-                  <a href={host.url} target="_blank" rel="noreferrer noopener">
-                    <Avatar src={host.image} alt={host.name} />
-                  </a>
+                  <AvatarLink
+                    name={host.name}
+                    href={host.url}
+                    image={host.image}
+                  />
                   <Typography textAlign="right" width="100%">
                     {host.name}
                   </Typography>

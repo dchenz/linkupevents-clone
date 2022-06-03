@@ -1,9 +1,10 @@
 import { Facebook, Search } from "@mui/icons-material";
-import { Avatar, AvatarGroup, Card, CardActions, CardContent, CardMedia, Typography } from "@mui/material";
-import React, { useEffect, useRef, useState } from "react";
+import { AvatarGroup, Card, CardActions, CardContent, CardMedia, Typography } from "@mui/material";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Properties } from "../../configuration/properties";
 import { PageRoutes } from "../../configuration/routes";
 import EventTime from "../../pages/Events/EventTime";
+import AvatarLink from "../AvatarLink";
 import IconButton from "../IconButton";
 import "./styles.css";
 
@@ -17,6 +18,11 @@ export default function EventCard({ event }) {
       setHeight(ref?.current?.clientWidth / 1.777778);
     }
   }, [ref]);
+
+  const displayedHosts = useMemo(() => {
+    return event.hosts.filter((host) =>
+      host.image != Properties.ignoreHostImage);
+  }, [event]);
 
   return (
     <Card className="event-card">
@@ -51,13 +57,14 @@ export default function EventCard({ event }) {
         </IconButton>
         <AvatarGroup max={3} sx={{ flexGrow: 1 }}>
           {
-            event.hosts
-              .filter((host) => host.image != Properties.ignoreHostImage)
-              .map((host, k) =>
-                <a key={k} href={host.url} target="_blank" rel="noreferrer noopener">
-                  <Avatar src={host.image} alt={host.name} />
-                </a>
-              )
+            displayedHosts.map((host, k) =>
+              <AvatarLink
+                key={k}
+                name={host.name}
+                href={host.url}
+                image={host.image}
+              />
+            )
           }
         </AvatarGroup>
       </CardActions>
