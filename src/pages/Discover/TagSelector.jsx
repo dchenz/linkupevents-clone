@@ -1,5 +1,6 @@
-import { Checkbox, FormControlLabel, FormGroup } from "@mui/material";
+import { FormControlLabel, FormGroup } from "@mui/material";
 import React from "react";
+import SetCheckbox from "../../components/SetCheckbox";
 import { Tags } from "./Tags";
 
 export default function TagSelector(props) {
@@ -10,27 +11,16 @@ export default function TagSelector(props) {
           <FormControlLabel
             key={k}
             label={tag}
-            control={<TagCheckbox {...props} label={tag} />}
+            control={
+              <SetCheckbox
+                set={props.tags}
+                item={tag}
+                onChange={props.onChange}
+              />
+            }
           />
         )
       }
     </FormGroup>
-  );
-}
-
-function TagCheckbox(props) {
-  const onChange = (e) => {
-    if (e.target.checked) {
-      props.tags.push(props.label);
-    } else {
-      props.tags.splice(props.tags.indexOf(props.label), 1);
-    }
-    props.onChange([...props.tags]);
-  };
-  return (
-    <Checkbox
-      checked={props.tags.includes(props.label)}
-      onChange={onChange}
-    />
   );
 }

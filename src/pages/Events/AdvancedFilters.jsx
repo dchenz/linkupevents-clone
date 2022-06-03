@@ -1,6 +1,7 @@
 import { ExpandMore, HelpOutline } from "@mui/icons-material";
 import { Accordion, AccordionDetails, AccordionSummary, Checkbox, FormControlLabel, FormGroup, Tooltip, Typography } from "@mui/material";
 import React from "react";
+import SetCheckbox from "../../components/SetCheckbox";
 
 // Sorted in render order
 // DAYS[0] is the result of Date.getDay
@@ -34,16 +35,10 @@ export default function AdvancedFilters(props) {
                 key={k}
                 label={day}
                 control={
-                  <Checkbox
-                    checked={props.days.includes(k)}
-                    onChange={(e) => {
-                      if (e.target.checked) {
-                        props.days.push(k);
-                      } else {
-                        props.days.splice(props.days.indexOf(k), 1);
-                      }
-                      props.setDays([...props.days]);
-                    }}
+                  <SetCheckbox
+                    set={props.days}
+                    item={k}
+                    onChange={props.setDays}
                   />
                 }
               />
