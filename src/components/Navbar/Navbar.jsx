@@ -12,7 +12,7 @@ export default function Navbar({ routes }) {
     <AppBar color="background" position="sticky">
       <Toolbar>
         <NavBrand
-          title="LinkupEvents"
+          title="LinkUp"
           image="/static/media/logo.png"
         />
         <Box flexGrow={1}></Box>

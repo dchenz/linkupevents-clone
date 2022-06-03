@@ -5,11 +5,12 @@
 }
 
 #nav-brand span {
-    margin-left: 0.5rem;
-    font-weight: 700;
+    margin-left: 0.3rem;
     letter-spacing: 0.1rem;
-    font-size: 1.5rem;
-    color: #000;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 700;
+    font-size: 1.7rem;
+    color: #e34329;
 }
 
 .nav-link-btn {
