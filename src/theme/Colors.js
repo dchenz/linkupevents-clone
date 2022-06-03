@@ -20,9 +20,12 @@ export default {
     default: "#f5f5f5",
     paper: "#ffffff"
   },
-  custom: {
-    facebook: "#4267b2",
-    sparc: "#7ac143",
-    unsw: "#fddd00"
+  "custom.facebook": {
+    main: "#4267b2"
+  },
+  "custom.sparc": {
+    main: "#7ac143",
+    light: "#90e34f",
+    dark: "#62a132"
   }
 };
