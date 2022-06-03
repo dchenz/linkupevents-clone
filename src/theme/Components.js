@@ -1,14 +1,12 @@
-import Colors from "./Colors";
-
-export default {
+export default (styles) => ({
   MuiButton: {
     variants: [
       {
         props: { variant: "text", color: "primary" },
         style: {
-          color: Colors.secondary.main
+          color: styles.text.primary
         }
       }
     ]
   }
-};
+});

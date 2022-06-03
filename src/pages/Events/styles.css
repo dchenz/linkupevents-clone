@@ -1,6 +1,6 @@
 .react-datepicker__close-icon::after {
     background-color: transparent !important;
-    color: #000 !important;
+    color: rgb(127, 127, 127) !important;
     font-size: 24px !important;
 }
 

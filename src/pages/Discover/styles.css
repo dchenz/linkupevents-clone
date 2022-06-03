@@ -3,12 +3,7 @@
     padding: 1rem 0;
     display: flex;
     text-decoration: none;
-    color: #000;
     transition: background-color 250ms;
-}
-
-.society-card:hover {
-    background-color: #f5f5f5;
 }
 
 .society-card-img {
@@ -28,6 +23,7 @@
     display: -webkit-box;
     text-overflow: ellipsis;
     -webkit-box-orient: vertical;
+    text-decoration: none;
 }
 
 .society-card-title {
@@ -55,4 +51,8 @@
 .society-no-results {
     width: 100%;
     text-align: center;
+}
+
+.no-decor {
+    text-decoration: none !important;
 }

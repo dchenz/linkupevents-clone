@@ -1,6 +1,6 @@
 import { CssBaseline } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
-import React from "react";
+import React, { useMemo, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import PageNavbar from "./components/Navbar";
 import { PageRoutes } from "./configuration/routes";
@@ -10,9 +10,11 @@ import EventPage from "./pages/Event";
 import AllEventsPage from "./pages/Events";
 import HomePage from "./pages/Home";
 import SocietyPage from "./pages/Society";
-import theme from "./theme";
+import getTheme from "./theme";
 
 export default function App() {
+  const [themeVariant] = useState("dark");
+  const theme = useMemo(() => getTheme(themeVariant), [themeVariant]);
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -34,4 +36,3 @@ export default function App() {
     </ThemeProvider>
   );
 }
-

@@ -1,13 +1,15 @@
 import { createTheme } from "@mui/material/styles";
-import colorStyles from "./Colors";
 import componentStyles from "./Components";
 import applyHeadingStyles from "./Headings";
+import { lightColors, darkColors } from "./Colors";
 
-const theme = createTheme({
-  palette: colorStyles,
-  components: componentStyles
-});
+export default function getTheme(variant) {
+  const styles = variant == "light" ? lightColors : darkColors;
+  const theme = createTheme({
+    palette: styles,
+    components: componentStyles(styles)
+  });
+  applyHeadingStyles(theme);
+  return theme;
+}
 
-applyHeadingStyles(theme);
-
-export default theme;

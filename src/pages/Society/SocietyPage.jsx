@@ -54,7 +54,10 @@ export default function SocietyPage({ society, events }) {
           events.length ?
             <Grid item md={12} width="100%" p={2}>
               <Box component={Paper} p={3} flexGrow={1}>
-                <Box mt={3}>
+                <Typography variant="h5">
+                  Events from {society.club_name}
+                </Typography>
+                <Box mt={5}>
                   <EventsGrid data={events} rows={3} />
                 </Box>
               </Box>

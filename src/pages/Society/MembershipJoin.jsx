@@ -2,24 +2,31 @@ import { Box, Button, Paper, Typography } from "@mui/material";
 import React from "react";
 import SparcLogoIcon from "./SparcLogoIcon";
 
-const membershipTypes = [
-  ["arc", "Arc Member"],
-  ["non-arc", "Non-Arc Member"],
-  ["associate", "Associate Member"]
-];
-
 export default function MembershipJoin({ society }) {
+  const isFree = society.fees ?
+    Object.values(society.fees).every((cost) => cost == 0) : true;
   return (
     <Box component={Paper} p={3} mb={3}>
       <Typography variant="h5">
         Membership
       </Typography>
-      {
-        society.fees ?
-          <Box mt={2}>
-            <MembershipPrice fees={society.fees} />
-          </Box> : null
-      }
+      <Box mt={2}>
+        {
+          isFree ?
+            <Typography>FREE</Typography> :
+            <React.Fragment>
+              <Typography>
+                Arc Member: {getPrice(society, "arc")}
+              </Typography>
+              <Typography>
+                Non-Arc Member: {getPrice(society, "non-arc")}
+              </Typography>
+              <Typography>
+                Associate Member: {getPrice(society, "associate")}
+              </Typography>
+            </React.Fragment>
+        }
+      </Box>
       <Box mt={2}>
         <Button
           variant="contained"
@@ -36,23 +43,12 @@ export default function MembershipJoin({ society }) {
   );
 }
 
-function MembershipPrice({ fees }) {
-  const prices = [];
-  for (const [key, name] of membershipTypes) {
-    if (fees[key]) {
-      prices.push(
-        <Typography key={key}>
-          {name}: ${fees[key]}
-        </Typography>
-      );
+function getPrice(society, key) {
+  if (society.fees) {
+    if (society.fees[key] == 0) {
+      return "FREE";
     }
+    return "$" + society.fees[key];
   }
-  if (prices.length == 0) {
-    return <Typography>FREE</Typography>;
-  }
-  return (
-    <React.Fragment>
-      {prices}
-    </React.Fragment>
-  );
+  return null;
 }

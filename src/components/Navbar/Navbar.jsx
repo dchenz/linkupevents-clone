@@ -9,7 +9,7 @@ export default function Navbar({ routes }) {
   const btnRef = useRef();
   const [menuOpen, setMenuOpen] = useState(false);
   return (
-    <AppBar color="background" position="sticky">
+    <AppBar color="navbar" position="sticky">
       <Toolbar>
         <NavBrand
           title="LinkUp"

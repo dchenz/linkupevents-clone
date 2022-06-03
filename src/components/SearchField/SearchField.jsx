@@ -17,7 +17,7 @@ export default function SearchField(props) {
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
-                <Search />
+                <Search color="secondary" />
               </InputAdornment>
             ),
             endAdornment: (
