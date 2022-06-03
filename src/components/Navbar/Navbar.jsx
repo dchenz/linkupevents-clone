@@ -2,7 +2,6 @@ import { Menu as MenuIcon } from "@mui/icons-material";
 import { AppBar, Box, Menu, MenuItem, Toolbar } from "@mui/material";
 import React, { useRef, useState } from "react";
 import IconButton from "../../components/IconButton";
-import LinkupLogo from "./logo.png";
 import NavBrand from "./NavBrand";
 import NavLink from "./NavLink";
 
@@ -14,7 +13,7 @@ export default function Navbar({ routes }) {
       <Toolbar>
         <NavBrand
           title="LinkupEvents"
-          image={LinkupLogo}
+          image="/static/media/logo.png"
         />
         <Box flexGrow={1}></Box>
         {/* LARGE SCREENS */}
