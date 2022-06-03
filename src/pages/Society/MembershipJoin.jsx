@@ -29,10 +29,11 @@ export default function MembershipJoin({ society }) {
       </Box>
       <Box mt={2}>
         <Button
+          variant="contained"
+          color="custom.sparc"
           href={`https://member.arc.unsw.edu.au/s/clubdetail?clubid=${society.club_id}`}
           target="_blank"
           rel="noopener noreferrer"
-          color="success"
           startIcon={<SparcLogoIcon />}
         >
           Join on Sparc

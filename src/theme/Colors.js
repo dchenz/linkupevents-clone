@@ -25,7 +25,8 @@ export default {
   },
   "custom.sparc": {
     main: "#7ac143",
-    light: "#90e34f",
-    dark: "#62a132"
+    light: "#7ac143",
+    dark: "#7ac143",
+    contrastText: "#ffffff"
   }
 };
