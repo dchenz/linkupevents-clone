@@ -48,14 +48,8 @@
 }
 
 .society-categories button {
-    color: #444;
     justify-content: left;
     text-align: left;
-}
-
-/* MuiButton-contained indicates that a button is selected/active */
-.society-categories .MuiButton-contained {
-    color: #fff !important;
 }
 
 .society-no-results {

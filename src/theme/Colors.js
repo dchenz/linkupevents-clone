@@ -2,12 +2,14 @@ export default {
   primary: {
     main: "#fc6e26",
     light: "#fc6e26",
-    dark: "#e34329"
+    dark: "#e34329",
+    contrastText: "#ffffff"
   },
   secondary: {
     main: "#404040",
     light: "#545454",
-    dark: "#1f1f1f"
+    dark: "#1f1f1f",
+    contrastText: "#ffffff"
   },
   info: {
     main: "#bdbdbd",
