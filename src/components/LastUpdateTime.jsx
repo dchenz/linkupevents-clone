@@ -16,8 +16,8 @@ export default function LastUpdateTime(props) {
       });
   };
   return (
-    <Box sx={{ display: "flex", alignItems: "center" }}>
-      <Typography>
+    <Box>
+      <Typography variant="span">
         Last updated: {props.date}
       </Typography>
       &nbsp;

@@ -34,7 +34,7 @@ export default function HomePage() {
   return (
     <Container>
       <Grid container my={4}>
-        <Grid item md={12} px={2} py={4}>
+        <Grid item md={12} px={2} py={4} sx={{  textAlign: { md: "center" } }}>
           <Typography variant="h1">
             UNSW Event Tracker
           </Typography>
