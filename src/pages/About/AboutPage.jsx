@@ -28,7 +28,7 @@ export default function AboutPage() {
             that it took place a few days ago was just too common.
           </Typography>
           <br />
-          <Typography color="gray">
+          <Typography>
             Our team is composed of multiple computer science and software engineering students, as well as a few commerce students.
           </Typography>
         </Grid>
