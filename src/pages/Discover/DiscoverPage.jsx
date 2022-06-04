@@ -1,5 +1,5 @@
 import { Box, Container, Grid, Paper, Typography } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import getSocieties from "../../api/GetSocieties";
 import Loading from "../../components/Loading";
 import SearchField from "../../components/SearchField";
@@ -31,8 +31,8 @@ export default function DiscoverPage() {
     }
   }, [searchString, categoryPath, selectedTags]);
 
-  const getNextPage = () => {
-    if (societies.length == maxResults) {
+  const getNextPage = useCallback(() => {
+    if (societies?.length == maxResults) {
       return;
     }
     getSocieties(page + 1, searchString, resolveCategoryValues(categoryPath), selectedTags)
@@ -41,7 +41,7 @@ export default function DiscoverPage() {
         setSocieties([...societies, ...data.hits]);
         setPage(page + 1);
       });
-  };
+  }, [societies]);
 
   if (societies === null) {
     return <Loading caption="Fetching clubs..." />;
