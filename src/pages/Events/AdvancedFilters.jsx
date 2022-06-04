@@ -22,7 +22,7 @@ It is useful if you don't mind arriving late or leaving early.`;
 export default function AdvancedFilters(props) {
   return (
     <Accordion>
-      <AccordionSummary expandIcon={<ExpandMore />}>
+      <AccordionSummary expandIcon={<ExpandMore color="secondary" />}>
         <Typography>
           Advanced filters
         </Typography>
