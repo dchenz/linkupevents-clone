@@ -35,15 +35,24 @@
     font-size: small !important;
 }
 
+.society-categories {
+    width: 100%;
+}
+
 .society-categories .group-nested {
-    padding-left: 1.75rem;
+    padding-left: 1.3rem;
 }
 
 .society-categories .group-nested button {
-    font-size: small;
+    font-size: 0.8rem;
 }
 
 .society-categories button {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    display: block;
+    text-overflow: ellipsis;
     justify-content: left;
     text-align: left;
 }
