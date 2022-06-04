@@ -39,7 +39,7 @@ export const lightColors = {
     paper: "#ffffff"
   },
   navbar: {
-    main: "#f5f5f5"
+    main: "#ffffff"
   }
 };
 
