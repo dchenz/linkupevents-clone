@@ -10,6 +10,9 @@ export const Properties = Object.freeze({
   societyAPI: "https://api.linkupevents.com.au/unsw/club?id=",
   lastUpdatedAPI: "https://dev-api.linkupevents.com.au/last-updated?uni=unsw",
   customHostsFile: "/custom-hosts.json",
-  ignoreHostImage: "https://cdn.linkupevents.com.au/society/default.jpg"
+  ignoreHostImage: "https://cdn.linkupevents.com.au/society/default.jpg",
+  linkupFacebookLink: "https://www.facebook.com/linkupevents.com.au/",
+  linkupEmailAddress: "linkup.uniapp@gmail.com",
+  arcClubsLink: "https://www.arc.unsw.edu.au/"
 });
 

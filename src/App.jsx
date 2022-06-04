@@ -2,6 +2,7 @@ import { CssBaseline } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
 import React, { useMemo, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Footer from "./components/Footer";
 import PageNavbar from "./components/Navbar";
 import { PageRoutes } from "./configuration/routes";
 import AboutPage from "./pages/About";
@@ -32,6 +33,7 @@ export default function App() {
           <Route path={PageRoutes.clubTemplateShort + "/:id"} element={<SocietyPage />} />
           <Route path={PageRoutes.clubTemplateLong + "/:id"} element={<SocietyPage />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </ThemeProvider>
   );
