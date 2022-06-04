@@ -45,10 +45,8 @@ export default function EventCard({ event }) {
       </CardContent>
       <CardActions>
         <IconButton
+          external href={event.url}
           tooltip="View on Facebook"
-          href={event.url}
-          target="_blank"
-          rel="noreferrer noopener"
         >
           <Facebook />
         </IconButton>

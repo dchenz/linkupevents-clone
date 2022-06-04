@@ -92,11 +92,9 @@ export default function EventPage({ event }) {
           {/* Icon Button pushes itself to the right, so reduce left/right padding */}
           <Box component={Paper} px={2} py={3} mb={3}>
             <IconButton
+              external href={event.url}
               color="custom.facebook"
               tooltip="View on Facebook"
-              href={event.url}
-              target="_blank"
-              rel="noreferrer noopener"
             >
               <Facebook fontSize="large" />
             </IconButton>

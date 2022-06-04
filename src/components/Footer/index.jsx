@@ -22,31 +22,19 @@ export default function Footer() {
           </Grid>
           <Grid item md={3} width="100%" p={1}>
             <Box sx={{ textAlign: { xs: "left", md: "right" } }}>
-              <IconButton
-                href={Properties.linkupFacebookLink}
-                rel="noopener noreferrer"
-                target="_blank"
-              >
+              <IconButton external href={Properties.linkupFacebookLink}>
                 <Facebook
                   sx={{ fontSize: 32 }}
                   htmlColor={theme.palette.text.secondary}
                 />
               </IconButton>
-              <IconButton
-                href={`mailto:${Properties.linkupEmailAddress}`}
-                rel="noopener noreferrer"
-                target="_blank"
-              >
+              <IconButton href={`mailto:${Properties.linkupEmailAddress}`}>
                 <Email
                   sx={{ fontSize: 32 }}
                   htmlColor={theme.palette.text.secondary}
                 />
               </IconButton>
-              <IconButton
-                href={Properties.arcClubsLink}
-                rel="noopener noreferrer"
-                target="_blank"
-              >
+              <IconButton external href={Properties.arcClubsLink}>
                 <ArcLogoIcon
                   size={32}
                   color={theme.palette.text.secondary}
