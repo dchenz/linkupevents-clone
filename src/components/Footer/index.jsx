@@ -19,7 +19,7 @@ export default function Footer() {
         <Grid container sx={{ display: "flex", alignItems: "center" }}>
           <Grid item md={9} width="100%" px={2} py={1}>
             <Typography variant="span" color="text.secondary">
-              App created by the LinkUp dev team.
+              This is a clone. Visit the real LinkUp at <a href="https://linkupevents.com.au" target="_blank" rel="noopener noreferrer">linkupevents.com.au</a>.
               <br />
               All logos and content are the works of individual clubs and entities.
             </Typography>
