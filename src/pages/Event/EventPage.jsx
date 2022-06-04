@@ -1,54 +1,59 @@
 import { Facebook, InsertInvitation } from "@mui/icons-material";
 import { Box, Chip, Container, Grid, Paper, Typography } from "@mui/material";
 import { format } from "date-fns";
-import React from "react";
+import React, { useMemo } from "react";
 import AvatarLink from "../../components/AvatarLink";
 import IconButton from "../../components/IconButton";
 import downloadICS from "./CalendarInvite";
+import "./styles.css";
 
 export default function EventPage({ event }) {
 
-  const chips = [];
-  if (event.uni) {
-    chips.push(event.uni.toUpperCase());
-  }
-  if (event.categories && !event.categories.includes("Unknown")) {
-    chips.push(...event.categories);
-  }
+  const categories = useMemo(() => {
+    if (event.categories) {
+      return event.categories.filter((c) => c != "Unknown");
+    }
+    return [];
+  }, [event]);
 
   return (
     <Container>
-      <Grid container my={4} p={2}>
-        <Grid item md={5} width="100%" p={1}>
+      <Grid container mt={4}>
+        <Grid item md={5} width="100%" p={2}>
           <img src={event.image_url} alt={event.title} width="100%" />
         </Grid>
-        <Grid item md={7} width="100%" p={1} sx={{ display: "flex", flexDirection: "column" }}>
+        <Grid item md={7} width="100%" p={2}>
           <Typography variant="h1">
             {event.title}
           </Typography>
-          <Box mt={1}>
+          <Box mt={1} display="flex" gap={1}>
             {
-              chips.map((value, k) =>
-                <Chip key={k} label={value} />
+              event.uni ?
+                <Chip label={event.uni.toUpperCase()} color="primary" /> : null
+            }
+            {
+              categories.map((value, k) =>
+                <Chip key={k} label={value} color="secondary" />
               )
             }
           </Box>
         </Grid>
       </Grid>
-      <Grid container my={4}>
-        <Grid item md={8} width="100%" p={2}>
-          <Box component={Paper} p={5}>
+      <Grid container mt={2} mb={4}>
+        <Grid item md={8} width="100%" display="flex" p={2}>
+          <Box component={Paper} p={3} flexGrow={1}>
             <Typography variant="h5">
               Description
             </Typography>
-            <br />
-            <Typography whiteSpace="pre-line">
-              {event.description}
-            </Typography>
+            <Box mt={2}>
+              <Typography className="formatted-text">
+                {event.description}
+              </Typography>
+            </Box>
           </Box>
         </Grid>
         <Grid item md={4} width="100%" p={2}>
-          <Box component={Paper} px={3} py={5} mb={3}>
+          <Box component={Paper} p={3} mb={3}>
             <Typography variant="h5">
               Hosts
             </Typography>
@@ -82,7 +87,7 @@ export default function EventPage({ event }) {
               Location
             </Typography>
             <Box mt={2}>
-              <Typography>
+              <Typography className="formatted-text">
                 {
                   event.location ?? "None specified. Please check the Facebook event for details."
                 }
@@ -90,7 +95,7 @@ export default function EventPage({ event }) {
             </Box>
           </Box>
           {/* Icon Button pushes itself to the right, so reduce left/right padding */}
-          <Box component={Paper} px={2} py={3} mb={3}>
+          <Box component={Paper} px={2} py={3}>
             <IconButton
               external href={event.url}
               color="custom.facebook"

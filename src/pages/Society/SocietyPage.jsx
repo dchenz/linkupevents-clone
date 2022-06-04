@@ -1,13 +1,14 @@
 import { Box, Chip, Container, Grid, Paper, Typography } from "@mui/material";
 import React from "react";
 import EventsGrid from "../../components/EventGrid";
+import "../Event/styles.css";
 import ContactLinks from "./ContactLinks";
 import MembershipJoin from "./MembershipJoin";
 
 export default function SocietyPage({ society, events }) {
   return (
     <Container>
-      <Grid container mt={4} sx={{ textAlign: { xs: "center", md: "left"}}}>
+      <Grid container mt={4} sx={{ textAlign: { xs: "center", md: "left" } }}>
         <Grid item md={2} width="100%" p={2} sx={{ img: { maxWidth: "250px" } }}>
           <img
             src={society.icon_url}
@@ -19,7 +20,7 @@ export default function SocietyPage({ society, events }) {
           <Typography variant="h1">
             {society.club_name}
           </Typography>
-          <Box mt={1}>
+          <Box mt={1} display="flex" gap={1} sx={{ justifyContent: { xs: "center", md: "left" } }}>
             {
               society.tags.map((value, k) =>
                 <Chip key={k} label={value} color="primary" />
@@ -40,7 +41,7 @@ export default function SocietyPage({ society, events }) {
               Description
             </Typography>
             <Box mt={2}>
-              <Typography whiteSpace="pre-line">
+              <Typography className="formatted-text">
                 {society.description}
               </Typography>
             </Box>

@@ -1,0 +1,5 @@
+/* Shared with SocietyPage.jsx components too */
+.formatted-text {
+    white-space: pre-line;
+    word-wrap: anywhere;
+}
