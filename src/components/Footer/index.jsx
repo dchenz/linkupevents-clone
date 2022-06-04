@@ -1,13 +1,17 @@
-import { Email, Facebook } from "@mui/icons-material";
+import { BrightnessHigh, BrightnessLow, Email, Facebook } from "@mui/icons-material";
 import { Box, Container, Grid, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import React from "react";
+import React, { useContext } from "react";
+import { ThemeContext } from "../../AppTheme";
 import { Properties } from "../../configuration/properties";
 import IconButton from "../IconButton";
 import ArcLogoIcon from "./ArcLogoIcon";
 import PaperFooter from "./PaperFooter";
 
+const iconSize = 28;
+
 export default function Footer() {
+  const { themeVariant, toggleTheme } = useContext(ThemeContext);
   const theme = useTheme();
   return (
     <Box component={PaperFooter} py={2}>
@@ -22,21 +26,37 @@ export default function Footer() {
           </Grid>
           <Grid item md={3} width="100%" p={1}>
             <Box sx={{ textAlign: { xs: "left", md: "right" } }}>
+              <IconButton
+                tooltip="Toggle theme"
+                onClick={toggleTheme}
+              >
+                {
+                  themeVariant == "light" ?
+                    <BrightnessHigh
+                      sx={{ fontSize: iconSize }}
+                      htmlColor={theme.palette.text.secondary}
+                    /> :
+                    <BrightnessLow
+                      sx={{ fontSize: iconSize }}
+                      htmlColor={theme.palette.text.secondary}
+                    />
+                }
+              </IconButton>
               <IconButton external href={Properties.linkupFacebookLink}>
                 <Facebook
-                  sx={{ fontSize: 32 }}
+                  sx={{ fontSize: iconSize }}
                   htmlColor={theme.palette.text.secondary}
                 />
               </IconButton>
               <IconButton href={`mailto:${Properties.linkupEmailAddress}`}>
                 <Email
-                  sx={{ fontSize: 32 }}
+                  sx={{ fontSize: iconSize }}
                   htmlColor={theme.palette.text.secondary}
                 />
               </IconButton>
               <IconButton external href={Properties.arcClubsLink}>
                 <ArcLogoIcon
-                  size={32}
+                  size={iconSize}
                   color={theme.palette.text.secondary}
                 />
               </IconButton>
