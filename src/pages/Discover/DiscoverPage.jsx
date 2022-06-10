@@ -2,7 +2,7 @@ import { Box, Container, Grid, Paper, Typography, useMediaQuery } from "@mui/mat
 import { useTheme } from "@mui/material/styles";
 import React, { useCallback, useEffect, useState } from "react";
 import getSocieties from "../../api/GetSocieties";
-import Loading from "../../components/Loading";
+import LoadingDiscoverPage from "../../components/Loading/LoadingDiscoverPage";
 import SearchField from "../../components/SearchField";
 import { resolveCategoryValues } from "./Categories";
 import ExpandableFilters from "./ExpandableFilters";
@@ -46,7 +46,7 @@ export default function DiscoverPage() {
   }, [societies]);
 
   if (societies === null) {
-    return <Loading caption="Fetching clubs..." />;
+    return <LoadingDiscoverPage />;
   }
 
   const filterComponent = <ExpandableFilters

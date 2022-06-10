@@ -1,7 +1,0 @@
-.loading-splash {
-    width: 100%;
-    height: calc(100vh - 70px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}

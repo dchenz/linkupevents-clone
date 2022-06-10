@@ -3,7 +3,7 @@ import { isThisMonth, isThisWeek, isToday, isTomorrow } from "date-fns";
 import React, { useEffect, useMemo, useState } from "react";
 import getEvents from "../../api/GetEvents";
 import LastUpdateTime from "../../components/LastUpdateTime";
-import Loading from "../../components/Loading";
+import LoadingHomePage from "../../components/Loading/LoadingHomePage";
 import EventCategory from "./EventCategory";
 
 export default function HomePage() {
@@ -28,7 +28,7 @@ export default function HomePage() {
   }, [events]);
 
   if (events === null) {
-    return <Loading caption="Fetching events..." />;
+    return <LoadingHomePage />;
   }
 
   return (

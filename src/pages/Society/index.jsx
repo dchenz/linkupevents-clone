@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 import { useParams } from "react-router-dom";
 import getSociety from "../../api/GetSociety";
 import getSocietyEvents from "../../api/GetSocietyEvents";
-import Loading from "../../components/Loading";
+import LoadingSocietyPage from "../../components/Loading/LoadingSocietyPage";
 import Page from "./SocietyPage";
 
 export default function SocietyPage() {
@@ -24,8 +24,15 @@ export default function SocietyPage() {
     })();
   }, [id]);
 
-  if (society === null) {
-    return <Loading caption="Fetching club info..." />;
+  if (!society) {
+    return (
+      <React.Fragment>
+        <Helmet>
+          <title>Clubs</title>
+        </Helmet>
+        <LoadingSocietyPage />
+      </React.Fragment>
+    );
   }
 
   return (

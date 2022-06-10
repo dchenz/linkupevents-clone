@@ -10,11 +10,13 @@ import EventPage from "./pages/Event";
 import AllEventsPage from "./pages/Events";
 import HomePage from "./pages/Home";
 import SocietyPage from "./pages/Society";
+import ScrollTop from "./ScrollTop";
 
 export default function App() {
   return (
     <AppTheme>
       <BrowserRouter>
+        <ScrollTop />
         <PageNavbar />
         <Routes>
           <Route exact path={PageRoutes.home} element={<HomePage />} />

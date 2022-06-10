@@ -2,7 +2,7 @@ import { Box, Container, Grid, Paper } from "@mui/material";
 import React, { useEffect, useMemo, useState } from "react";
 import getEvents from "../../api/GetEvents";
 import EventsGrid from "../../components/EventGrid";
-import Loading from "../../components/Loading";
+import LoadingAllEventsPage from "../../components/Loading/LoadingAllEventsPage";
 import SearchField, { useSearch } from "../../components/SearchField";
 import AdvancedFilters from "./AdvancedFilters";
 import { applyFilters, dateFilter, daysFilter, multiDayFilter } from "./DataTransforms";
@@ -75,7 +75,7 @@ export default function AllEventsPage() {
   }, [searchedEvents, startDate, finishDate, hideMultiDay, days, byInterval]);
 
   if (displayedEvents === null) {
-    return <Loading caption="Fetching events..." />;
+    return <LoadingAllEventsPage />;
   }
 
   return (

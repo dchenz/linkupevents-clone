@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import { useParams } from "react-router-dom";
 import getEvent from "../../api/GetEvent";
-import Loading from "../../components/Loading";
+import LoadingEventPage from "../../components/Loading/LoadingEventPage";
 import Page from "./EventPage";
 
 export default function EventPage() {
@@ -14,8 +14,15 @@ export default function EventPage() {
       .then(setEvent);
   }, []);
 
-  if (event === null) {
-    return <Loading caption="Fetching event info..." />;
+  if (!event) {
+    return (
+      <React.Fragment>
+        <Helmet>
+          <title>Events</title>
+        </Helmet>
+        <LoadingEventPage />
+      </React.Fragment>
+    );
   }
 
   return (
