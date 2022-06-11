@@ -1,3 +1,13 @@
 body {
     margin: 0;
 }
+
+.app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.app .app-body {
+    flex-grow: 1;
+}
