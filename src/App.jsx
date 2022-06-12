@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import AppTheme from "./AppTheme";
 import Footer from "./components/Footer";
 import PageNavbar from "./components/Navbar";
@@ -32,6 +32,7 @@ export default function App() {
               <Route path={PageRoutes.clubs} element={<DiscoverSocietiesPage />} />
               <Route path={PageRoutes.clubTemplateShort + "/:id"} element={<SocietyPage />} />
               <Route path={PageRoutes.clubTemplateLong + "/:id"} element={<SocietyPage />} />
+              <Route path="*" element={<Navigate to={PageRoutes.home} replace />} />
             </Routes>
           </div>
           <Footer />
