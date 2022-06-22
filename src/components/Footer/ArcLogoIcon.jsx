@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import React from "react";
 
 /**
@@ -78,7 +77,3 @@ export default function ArcLogoIcon(props) {
   );
 }
 
-ArcLogoIcon.propTypes = {
-  size: PropTypes.number,
-  color: PropTypes.string
-};

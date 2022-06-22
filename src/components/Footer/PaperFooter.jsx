@@ -1,5 +1,4 @@
 import { Paper } from "@mui/material";
-import PropTypes from "prop-types";
 import React, { forwardRef } from "react";
 
 /**
@@ -12,8 +11,5 @@ const PaperFooter = forwardRef((props, ref) =>
   </Paper>
 );
 PaperFooter.displayName = "paperfooter";
-PaperFooter.propTypes = {
-  children: PropTypes.node
-};
 
 export default PaperFooter;

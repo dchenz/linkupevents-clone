@@ -1,6 +1,5 @@
 import { CssBaseline } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
-import PropTypes from "prop-types";
 import React, { createContext, useCallback, useMemo, useState } from "react";
 import getTheme from "./Theme";
 import { loadTheme, saveTheme } from "./ThemeCache";
@@ -42,7 +41,3 @@ export default function AppTheme(props) {
     </ThemeContext.Provider>
   );
 }
-
-AppTheme.propTypes = {
-  children: PropTypes.node
-};
