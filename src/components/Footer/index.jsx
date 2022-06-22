@@ -2,8 +2,8 @@ import { BrightnessHigh, BrightnessLow, Email, Facebook } from "@mui/icons-mater
 import { Box, Container, Grid, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import React, { useContext } from "react";
-import { ThemeContext } from "../../AppTheme";
 import { Properties } from "../../configuration/properties";
+import { ThemeContext } from "../../theme";
 import IconButton from "../IconButton";
 import ArcLogoIcon from "./ArcLogoIcon";
 import PaperFooter from "./PaperFooter";

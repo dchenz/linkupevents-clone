@@ -1,3 +1,9 @@
+/**
+ * Refer to MUI theming documentation.
+ *
+ * https://mui.com/material-ui/customization/palette/
+ */
+
 export const baseColors = {
   primary: {
     main: "#fc6e26",

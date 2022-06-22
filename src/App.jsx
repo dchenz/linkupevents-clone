@@ -1,6 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
-import AppTheme from "./AppTheme";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Footer from "./components/Footer";
 import PageNavbar from "./components/Navbar";
 import { PageRoutes } from "./configuration/routes";
@@ -12,6 +11,7 @@ import AllEventsPage from "./pages/Events";
 import HomePage from "./pages/Home";
 import SocietyPage from "./pages/Society";
 import ScrollTop from "./ScrollTop";
+import AppTheme from "./theme";
 
 export default function App() {
   return (

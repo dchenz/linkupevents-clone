@@ -1,7 +1,16 @@
+/**
+ * Sets custom sizes for HTML h1..6 tags because the default MUI sizes are too large.
+ * Also, it applies mobile responsive sizes so it's not oversized on smaller screens.
+ *
+ * @param {Theme} theme
+ */
 export default function applyHeadingStyles(theme) {
   // eslint-disable-next-line no-unused-vars
   const getHeadingStyles = ({ breakpoints, ...styles }, baseSize) => ({
     ...styles,
+    // "breakpoints" is excluded from the "styles" object
+    // otherwise MUI will apply its own sizes on other breakpoints
+
     fontSize: `${baseSize}rem`,
     [theme.breakpoints.down("md")]: {
       fontSize: `${baseSize - 0.2}rem`
