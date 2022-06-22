@@ -1,5 +1,11 @@
+import PropTypes from "prop-types";
 import React from "react";
 
+/**
+ * An SVG of the Arc UNSW logo.
+ *
+ * @param {{ size: number, color: string }} props
+ */
 export default function ArcLogoIcon(props) {
   const iconSize = (props.size ?? 26) - 8;
   return (
@@ -71,3 +77,8 @@ export default function ArcLogoIcon(props) {
     </svg>
   );
 }
+
+ArcLogoIcon.propTypes = {
+  size: PropTypes.number,
+  color: PropTypes.string
+};
